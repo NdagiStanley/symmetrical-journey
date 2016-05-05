@@ -4,3 +4,4 @@
 
 [![Code Health](https://landscape.io/github/NdagiStanley/symmetrical-journey/ft-setup-repo/landscape.svg?style=plastic)](https://landscape.io/github/NdagiStanley/symmetrical-journey/ft-setup-repo)
 
+[![Coverage Status](https://coveralls.io/repos/github/NdagiStanley/symmetrical-journey/badge.svg?branch=master)](https://coveralls.io/github/NdagiStanley/symmetrical-journey?branch=ft-setup-repo)
