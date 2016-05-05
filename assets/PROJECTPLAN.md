@@ -30,11 +30,11 @@ The user will be able categorise their images.
 
 ##Tasks and Deliverables
 
-1. Create PT project
+~~1. Create PT project~~
 
     **Chore**
 
-2. Setup CI - PT # integration; CI (Semaphore CI); Coveralls, Landscape
+~~2. Setup CI - PT # integration; CI (Semaphore CI); Coveralls, Landscape~~
 
     **1**
 
@@ -43,8 +43,3 @@ The user will be able categorise their images.
     **2**
 
 4. Functionality (Break it down)
-
-
-
-
-
