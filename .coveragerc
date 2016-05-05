@@ -1,0 +1,7 @@
+[run]
+include = sl/*
+omit =
+  *migrations*
+  *commands*
+  *autofixtures*
+  *tests.py*
