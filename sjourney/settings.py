@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_nose',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -70,6 +71,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sjourney.wsgi.application'
 
+# Use nose to run all tests
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+# Tell nose to measure coverage on the app
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=app',
+]
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
