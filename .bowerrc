@@ -1,0 +1,6 @@
+{
+    "directory": "sjourney/static/lib",
+    "analytics": false,
+    "timeout": 120000,
+    "interactive": false
+}

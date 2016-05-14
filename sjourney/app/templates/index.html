@@ -1,9 +1,74 @@
-<!DOCTYPE html>
+{% load staticfiles %}
+<link rel="import" href="{% static 'lib/app-layout/app-layout.html' %}">
+
+<!doctype html>
 <html>
 <head>
-    <title>Landing page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <title>Symmetrical Journey</title>
+
+  <script src="{% static 'lib/webcomponentsjs/webcomponents-lite.js' %}"></script>
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+  <style>
+
+    body {
+      font-family: sans-serif;
+    }
+
+    header {
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+        height: calc(100vh - 16px);
+        /*background-image: url('//s32.postimg.org/riuk49xf9/leather_1.png');*/
+        backgrond-repeat: no-repeat;
+        background-color: #fafafa;
+        background-size: cover;
+        color: #000;
+        text-align: center;
+      }
+
+      header > h2 {
+        font-size: 56px;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      header > p {
+        font-size: 32px;
+      }
+
+      .title-toolbar {
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+        box-sizing: border-box;
+      }
+
+      .nav-title-toolbar {
+        width: 100vw;
+      }
+
+  </style>
+
 </head>
 <body>
-    <p>Yei</p>
+
+  <app-header-layout>
+    <header>
+      <h2>Welcome</h2>
+      <h2>to</h2>
+      <h2>SJ</h2>
+      <p>Made with App Layout Elements</p>
+    </header>
+  </app-header-layout>
+
+  <app-toolbar align="center" class="title-toolbar nav-title-toolbar">
+    <a class="fa fa-github" href="https://github.com/NdagiStanley/symmetrical-journey/tree/feature-review" target="_blank"></a>
+    </div>
+  </app-toolbar>
+
 </body>
 </html>
