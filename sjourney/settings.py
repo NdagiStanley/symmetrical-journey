@@ -15,38 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-BOWER_INSTALLED_APPS = (
-    "polymer",
-    "iron-flex-layout",
-    "iron-media-query",
-    "iron-resizable-behavior",
-    "iron-scroll-target-behavior",
-    "app-layout",
-    "carbon-route",
-    "font-roboto",
-    "iron-component-page",
-    "iron-icon",
-    "iron-icons",
-    "iron-list",
-    "iron-pages",
-    "iron-page-url",
-    "paper-card",
-    "paper-checkbox",
-    "paper-fab",
-    "paper-icon-button",
-    "paper-item",
-    "paper-listbox",
-    "paper-menu",
-    "paper-menu-button",
-    "paper-tabs",
-    "paper-progress",
-    "paper-styles",
-    "test-fixture",
-    "webcomponentsjs",
-    "web-component-tester"
-)
-
-BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'sjourney/static')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
