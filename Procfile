@@ -1,1 +1,1 @@
-web: gunicorn sjourney.wsgi --pythonpath=sjourney --log-file -
+web: python manage.py bower install PolymerLabs/app-layout; gunicorn sjourney.wsgi --pythonpath=sjourney --log-file -
