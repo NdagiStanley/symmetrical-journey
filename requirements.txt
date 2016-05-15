@@ -5,3 +5,4 @@ django-bower==5.1.0
 django-nose==1.4.3
 djangorestframework==3.3.3
 django-toolbelt==0.0.1
+whitenoise==2.0.3
