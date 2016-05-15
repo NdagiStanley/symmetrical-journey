@@ -1,1 +1,1 @@
-web: bower install; python manage.py collectstatic --noinput;gunicorn sjourney.wsgi --pythonpath=sjourney --log-file -
+web: python manage.py collectstatic --noinput;gunicorn sjourney.wsgi --pythonpath=sjourney --log-file -
