@@ -1,1 +1,0 @@
-web: gunicorn sjourney.wsgi --pythonpath=sjourney --log-file -

@@ -52,6 +52,5 @@
   },
   "_source": "git://github.com/PolymerLabs/app-layout.git",
   "_target": "^0.0.17",
-  "_originalSource": "PolymerLabs/app-layout",
-  "_direct": true
+  "_originalSource": "PolymerLabs/app-layout"
 }
