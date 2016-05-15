@@ -1,1 +1,1 @@
-web: python manage.py collectstatic --noinput;gunicorn sjourney.wsgi --pythonpath=sjourney --log-file -
+web: python manage.py collectstatic --noinput; python.manage.py migrate;gunicorn sjourney.wsgi --pythonpath=sjourney --log-file -
