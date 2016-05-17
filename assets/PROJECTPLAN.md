@@ -38,7 +38,7 @@ The user will be able categorise their images.
 
     **1**
 
-3. Integrate Vue with Django
+~3. Integrate Vue with Django~ Abandoned
 
     **2**
 

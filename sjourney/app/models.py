@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class Picture(models.Model):
     """docstring for Picture model"""
 
-    name = models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
     size = models.CharField(max_length=255)
     uploaded_image = models.ImageField()
     editted_image = models.ImageField()
