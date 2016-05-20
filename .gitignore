@@ -15,7 +15,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-staticfiles/
+lib/
 lib64/
 parts/
 sdist/
@@ -60,3 +60,22 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+# Staticfiles
+staticfiles
+
+# DB
+db.sqlite3
+
+# Vue files
+.DS_Store
+node_modules/
+dist/
+npm-debug.log
+selenium-debug.log
+test/unit/coverage
+test/e2e/reports
+
+# Scripts
+build.sh
+next_build.sh
