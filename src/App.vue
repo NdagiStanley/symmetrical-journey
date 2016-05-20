@@ -1,23 +1,27 @@
 <template>
   <div id="app">
-    <img class="logo" src="./assets/logo.png">
     <hello></hello>
+    <h2>
+      Welcome to Symmetrical Journey
+    </h2>
     <p>
-      Welcome to your Vue.js app!
+      built with
     </p>
-    <p style="color:red">
-      It seems you are using an outdated version of vue-cli.<br>
-      Upgrade to vue-cli@2.x to get access to newer versions of this template.
-    </p>
+    <img class="logo" src="//vuejs.org/images/logo.png">
+    <p>&</p>
+    <img class="logo" src="//www.djangoproject.com/s/img/icon-touch.e4872c4da341.png">
+    <loading></loading>
   </div>
 </template>
 
 <script>
 import Hello from './components/Hello'
+import Loading from './components/Loading'
 
 export default {
   components: {
-    Hello
+    Hello,
+    Loading
   }
 }
 </script>
