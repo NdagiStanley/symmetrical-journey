@@ -16,9 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from sjourney.app.views import index
+from sjourney.app.api import PictureListAPIView, PictureDetailAPIView
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index, name='home')
+    url(r'^$', index, name='home'),
+    url(r'^api/v1/pics/$', PictureListAPIView.as_view()),
+    url(r'^api/v1/pics/(?P<pk>[0-9]+)', PictureDetailAPIView.as_view()),
 ]

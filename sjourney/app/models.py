@@ -13,5 +13,9 @@ class Picture(models.Model):
     editted_image = models.ImageField()
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
+
     # Delete photos when uploader is deleted
-    uploader = models.ForeignKey(User, related_name="photos", on_delete=models.CASCADE)
+    uploader = models.ForeignKey(
+        User,
+        related_name="photos",
+        on_delete=models.CASCADE)

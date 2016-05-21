@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 from .models import Picture
 
-class PictureSerializer(serializers.ModelSerilizer):
+class PictureSerializer(serializers.ModelSerializer):
     """docstring for PictureSerializer"""
 
     class Meta:
