@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_nose',
     'sjourney.app',
+    'rest_framework',
+    'rest_framework_docs',
 ]
 
 MIDDLEWARE_CLASSES = [
