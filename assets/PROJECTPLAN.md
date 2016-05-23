@@ -10,7 +10,7 @@ Django Powered Photo Editing Application
 
 ####End Date
 
-13 May 2016
+24 May 2016
 
 ##Application Overview
 
