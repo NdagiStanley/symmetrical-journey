@@ -15,7 +15,7 @@ class PictureListAPIView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         """The user will be associated with the photo as the uploader"""
-        serializer.save(uploader= self.request.user)
+        serializer.save(uploader=self.request.user)
 
 
 class PictureDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
