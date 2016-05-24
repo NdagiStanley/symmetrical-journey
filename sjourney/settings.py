@@ -29,6 +29,13 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Social Authentication
+FACEBOOK_APP_ID = os.getenv('FACEBOOK_APP_ID')
+FACEBOOK_APP_SECRET = os.getenv('FACEBOOK_APP_SECRET')
+
+# AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
+
+
 ALLOWED_HOSTS = []
 
 
@@ -45,6 +52,7 @@ INSTALLED_APPS = [
     'sjourney.app',
     'rest_framework',
     'rest_framework_docs',
+    'django_facebook',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -71,6 +79,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_facebook.context_processors.facebook',
             ],
         },
     },
@@ -116,6 +125,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+AUTHENTICATION_BACKENDS = (
+    'django_facebook.auth_backends.FacebookBackend',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/

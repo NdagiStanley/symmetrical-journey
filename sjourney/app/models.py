@@ -1,7 +1,10 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.contrib.auth.models import User
+from sjourney import settings
+
+# fb_user = settings.AUTH_USER_MODEL
+from django_facebook.models import FacebookModel
 
 # Create your models here.
 class Picture(models.Model):
@@ -16,6 +19,6 @@ class Picture(models.Model):
 
     # Delete photos when uploader is deleted
     uploader = models.ForeignKey(
-        User,
+        FacebookModel,
         related_name="photos",
         on_delete=models.CASCADE)
