@@ -79,3 +79,5 @@ test/e2e/reports
 # Scripts
 build.sh
 next_build.sh
+
+.env
