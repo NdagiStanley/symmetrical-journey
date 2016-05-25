@@ -1,20 +1,24 @@
-<!-- {% load staticfiles %} -->
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <!-- <link rel="stylesheet" type="text/css" href="{% static 'semantic/dist/semantic.min.css' %}"> -->
-    <link rel="stylesheet" type="text/css" href="static/semantic/dist/semantic.min.css">
-    <!-- <script src="{% static 'semantic/dist/semantic.min.js' %}"></script> -->
-    <script src="static/semantic/dist/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.2.0/semantic.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.2.0/semantic.min.js"></script>
     <title>symmetrical-journey</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <app></app>
     <!-- built files will be auto injected -->
+</body>
+<script type="text/javascript">
+$('.ui.labeled.icon.sidebar')
+    .sidebar('toggle');
+</script>
 
-    <button class="ui primary loading button">Loading</button>
-  </body>
 </html>

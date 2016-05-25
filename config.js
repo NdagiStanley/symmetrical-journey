@@ -4,7 +4,7 @@ var path = require('path')
 module.exports = {
   build: {
     index: path.resolve(__dirname, 'templates/index.html'),
-    assetsRoot: path.resolve(__dirname, 'static'),
+    assetsRoot: path.resolve(__dirname, 'static/vue'),
     assetsSubDirectory: '/',
     assetsPublicPath: '/',
     productionSourceMap: true
