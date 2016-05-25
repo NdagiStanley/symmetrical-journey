@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
+from django_envie.workroom import convertfiletovars
 import os
+
+# For purposes of having a env.yml
+convertfiletovars()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,10 +24,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 's8-2p#b4eqnprkr(l3u!i3k5et&jnxntq3q+!s)m!qkva!iz0&'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+
+# AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
+
 
 ALLOWED_HOSTS = []
 
@@ -39,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_nose',
     'sjourney.app',
+    'rest_framework',
+    'rest_framework_docs',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -135,5 +145,9 @@ STATICFILES_DIRS = (
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/staticfiles/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
 
 APPEND_SLASH = False
