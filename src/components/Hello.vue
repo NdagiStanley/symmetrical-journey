@@ -1,7 +1,13 @@
 <template>
+  {% if user and not user.is_anonymous %}
+  <div class="hello">
+    <h1>Hello {{ user.get_full_name }}!</h1>
+  </div>
+  {% else %}
   <div class="hello">
     <h1>{{ msg }}</h1>
   </div>
+  {% endif %}
 </template>
 
 <script>

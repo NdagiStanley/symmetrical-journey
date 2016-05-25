@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 
@@ -5,24 +6,16 @@
     <meta charset=utf-8>
     <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
     <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js></script>
-    <link rel=stylesheet type=text/css href=static/semantic/semantic.min.css>
-    <script src=static/semantic/semantic.min.js></script>
-    <title>symmetrical-journey</title>
-    <link href=//app.4bafeef396ef27ce4060936b89b0bd8a.css rel=stylesheet>
+    <link rel=stylesheet type=text/css href=//cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.2.0/semantic.min.css>
+    <script src=//cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.2.0/semantic.min.js></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
+    <title>SJ - symmetricalJourney</title>
+    <link href="{% static 'app.d9b36fefa5987dd8c47c619b7db2fd8f.css' %}" rel=stylesheet>
 </head>
 
 <body>
     <app></app>
-    {% if user and not user.is_anonymous %}
-    <a>Hello, {{ user.get_full_name }}!</a>
-    <br>
-    <a href="/logout/">Logout</a>
-    {% else %}
-    <a href="/login/facebook/">Login with Facebook</a>
-    {% endif %}
-    <button class="ui primary loading button">Loading</button>
-    <script type=text/javascript src=//app.8bc6fedc32ec413283bb.js></script>
+    <script src="{% static 'app.90f345f17fb24d012e1e.js' %}"></script>
 </body>
 
 </html>
