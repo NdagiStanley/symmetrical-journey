@@ -25,6 +25,4 @@ urlpatterns = [
     url(r'^api/v1/pics/$', PictureListAPIView.as_view()),
     url(r'^api/v1/pics/(?P<pk>[0-9]+)', PictureDetailAPIView.as_view()),
     url(r'^docs/', include('rest_framework_docs.urls')),
-    url(r'^facebook/', include('django_facebook.urls')),
-    url(r'^accounts/', include('django_facebook.auth_urls')),
 ]
