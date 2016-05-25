@@ -2,26 +2,21 @@
   <div id="app">
     <hello></hello>
     <h2>
-      Welcome to Symmetrical Journey
+      Yes, the journey is symmetrical
     </h2>
-    <p>
-      built with
-    </p>
     <img class="logo" src="//vuejs.org/images/logo.png">
-    <p>&</p>
-    <img class="logo" src="//www.djangoproject.com/s/img/icon-touch.e4872c4da341.png">
-    <loading></loading>
+    <login></login>
   </div>
 </template>
 
 <script>
 import Hello from './components/Hello'
-import Loading from './components/Loading'
+import Login from './components/Login'
 
 export default {
   components: {
     Hello,
-    Loading
+    Login
   }
 }
 </script>

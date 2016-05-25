@@ -80,4 +80,5 @@ test/e2e/reports
 build.sh
 next_build.sh
 
-.env
+# Configuration files
+.env.yml
