@@ -82,5 +82,3 @@ next_build.sh
 
 # Configuration files
 .env.yml
-config.py
-
