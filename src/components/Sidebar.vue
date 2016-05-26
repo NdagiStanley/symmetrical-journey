@@ -9,22 +9,21 @@
             <img class="logo" src="//s32.postimg.org/oog38bkut/image.png">
             Sjourney
           </a>
-          <a href="" class="item"> {{ msg }}</a>
-        <div class="right item">
-          Hey, {{ user.get_full_name }}!
-          <a href="/logout/" class="ui header item">
-          Log out
-          </a>
-        </div>
+          <div class="right item">
+            Hey, {{ user }}!
+            <a href="/logout/" class="ui header item">
+            Log out
+            </a>
+          </div>
+          <steps></steps>
       </div>
     </div>
-  </div>
-  <div class="dashboard">
-    <h1>{{ msg }}</h1>
   </div>
 </template>
 
 <script>
+import Steps from './Steps'
+
 export default {
   data () {
     return {
@@ -32,8 +31,12 @@ export default {
       // with hot-reload because the reloaded component
       // preserves its current state and we are modifying
       // its initial state.
-      msg: 'Welcome to the dashboard!'
+      msg: 'Welcome to the dashboard!',
+      user: '{{ user.get_full_name }}'
     }
+  },
+  components: {
+    Steps
   }
 }
 </script>
