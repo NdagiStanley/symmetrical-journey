@@ -4,7 +4,7 @@
     <h2>
       Yes, the journey is symmetrical
     </h2>
-    <img class="logo" src="//vuejs.org/images/logo.png">
+    <img class="logo" src="//s32.postimg.org/oog38bkut/image.png">
     <login></login>
   </div>
 </template>
@@ -31,6 +31,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100%;
+  background-image:
 }
 
 #app {
