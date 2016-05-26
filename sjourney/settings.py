@@ -12,8 +12,9 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 from django_envie.workroom import convertfiletovars
 
-import sys
 import os
+import sys
+import dj_database_url
 
 # For purposes of having a env.yml
 convertfiletovars()
@@ -132,6 +133,8 @@ else:
         }
     }
 
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
