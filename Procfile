@@ -1,1 +1,1 @@
-web: python manage.py collectstatic --noinput; python manage.py migrate;gunicorn sjourney.wsgi --pythonpath=sjourney --log-file -
+web: pip install --upgrade pip python manage.py collectstatic --noinput; python manage.py migrate;gunicorn sjourney.wsgi --pythonpath=sjourney --log-file -
