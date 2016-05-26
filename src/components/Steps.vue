@@ -1,4 +1,4 @@
-<<template>
+<template>
     <div class="steps">
         <div class="ui three top attached steps">
             <div class="active step">

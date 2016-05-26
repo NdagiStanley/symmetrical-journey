@@ -1,11 +1,13 @@
 <template>
-  <div id="home">
-    <hello></hello>
-    <h2>
-      Yes, the journey is symmetrical
-    </h2>
-    <img class="logo" src="//s32.postimg.org/oog38bkut/image.png">
-    <login></login>
+  <div class="landing">
+    <div id="home">
+      <hello></hello>
+      <h2>
+        Yes, the journey is symmetrical
+      </h2>
+      <img class="logo" src="//s32.postimg.org/oog38bkut/image.png">
+      <login></login>
+    </div>
   </div>
 </template>
 

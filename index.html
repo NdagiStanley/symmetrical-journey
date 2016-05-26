@@ -1,4 +1,4 @@
-{% load staticfiles %}
+<!-- {% load staticfiles %} -->
 <!DOCTYPE html>
 <html>
 
@@ -13,19 +13,10 @@
     <title>SJ - symmetricalJourney</title>
     <link href="{% static '' %}" rel="stylesheet">
 </head>
-
 <body>
-    {% if user and not user.is_anonymous %}
-    <app></app>
-    {% else %}
-    <div class="landing">
-        <home></home>
+    <div id="sjourney">
+        <base></base>
     </div>
-    {% endif %}
-
-
-    <!-- <app></app> -->
-    <!-- <home></home> -->
     <script type=text/javascript src="{% static '' %}"></script>
     <!-- built files will be auto injected -->
 </body>

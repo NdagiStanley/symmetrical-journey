@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-    <!-- <a>Hey, {{ user.get_full_name }}!</a>
-    <a href="/logout/">Logout</a>
-     -->
     <sidebar></sidebar>
   </div>
 </template>
