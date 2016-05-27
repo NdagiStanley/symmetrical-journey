@@ -1,5 +1,5 @@
 [run]
-include = sl/*
+include = sjourney/*
 omit =
   *migrations*
   *commands*
