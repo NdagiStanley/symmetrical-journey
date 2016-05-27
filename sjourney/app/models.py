@@ -7,7 +7,6 @@ from sjourney import settings
 from django.contrib.auth.models import User
 from django.utils import timezone
 
-now = timezone.now()
 
 # Create your models here.
 class Picture(models.Model):

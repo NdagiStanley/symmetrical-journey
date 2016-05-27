@@ -2,13 +2,13 @@
 
 > A Vue.js project on Django that allows users to upload their photos, set filters to them and share them
 
-[![Build Status](https://semaphoreci.com/api/v1/stanmd/symmetrical-journey/branches/ft-setup-repo/badge.svg)](https://semaphoreci.com/stanmd/symmetrical-journey)
+[![Build Status](https://semaphoreci.com/api/v1/stanmd/symmetrical-journey/branches/feature-review/badge.svg)](https://semaphoreci.com/stanmd/symmetrical-journey)
 [![Code Health](https://landscape.io/github/NdagiStanley/symmetrical-journey/ft-setup-repo/landscape.svg?style=plastic)](https://landscape.io/github/NdagiStanley/symmetrical-journey/ft-setup-repo)
 [![Coverage Status](https://coveralls.io/repos/github/NdagiStanley/symmetrical-journey/badge.svg?branch=master)](https://coveralls.io/github/NdagiStanley/symmetrical-journey?branch=ft-setup-repo)
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for **development** and **testing** purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisities
 
@@ -27,17 +27,41 @@ You'll need to have the following installed in your local machine to run this ap
 
 3. Install dependencies of the application/ project
 
-    RUN ```pip install -r requirements.txt```
+    RUN ```pip install -r requirements.txt``` for django (backend)
 
-    #### Build Setup for frontend
+    RUN ```npm install``` for vue (frontend)
 
-    ``` bash
-    npm install
-    ```
-
-4. Run the server
+4. To run the server:
 
     RUN ```python manage.py runserver``` and get to [http://localhost:8000](http://localhost:8000)
+
+5. The project packs a development tool for Vue JS (which supports hot-reloading and webpack bundling). For this:
+
+    RUN ```npm run dev``` and get to [http://localhost:8888](http://localhost:8888)
+
+    After edtting the Vue components run ```npm run build```
+
+    In the index.html in the templates folder correctly reference the static files and run the django server.
+
+
+### Building blocks
+
+The application hosted [here](https://sjourney.herokuapp.com/) packs a punch.
+
+Pillow is a python package used to manipulate pictures and produce effects like `blurring`, `sharpening`
+
+#####Backend
+It runs on Django complemented by a REST API made using Django Rest Framework (DRF)
+
+#####Front-end
+The frontend is a VueJS based Single Page Application (SPA) using the following tools and libraries:
+- `Vue JS` as the View Layer,
+- `vue-router` for routing,
+- `vuex` for state management,
+- `vue-resource` REST-API interfacing plugin,
+- `vue-loader` and as mentioned earlier `webpack` which are the *Build tools*
+
+The UI-framework used is `semantic-ui`
 
 ----
 

@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 from django_envie.workroom import convertfiletovars
 
 import os
+import sys
+import dj_database_url
 
 # For purposes of having a env.yml
 convertfiletovars()
@@ -30,7 +32,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # Social Auth Configuration
 SOCIAL_AUTH_FACEBOOK_KEY = os.getenv('SOCIAL_AUTH_FACEBOOK_KEY')
 SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv('SOCIAL_AUTH_FACEBOOK_SECRET')
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/home/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
 SOCIAL_AUTH_LOGIN_URL = '/'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -111,13 +113,28 @@ NOSE_ARGS = [
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if 'test' in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'testdatabase',
+        }
     }
-}
 
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'sjourney',
+            'USER': 'postgres',
+            'PASSWORD': '@ndel@2o15',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+        }
+    }
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
