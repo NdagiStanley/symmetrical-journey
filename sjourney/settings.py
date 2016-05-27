@@ -38,10 +38,6 @@ SOCIAL_AUTH_LOGIN_URL = '/'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
-# AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
-
-
 ALLOWED_HOSTS = []
 
 
@@ -79,6 +75,12 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
+}
+
 ROOT_URLCONF = 'sjourney.urls'
 
 TEMPLATES = [
@@ -107,7 +109,7 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 # Tell nose to measure coverage on the app
 NOSE_ARGS = [
     '--with-coverage',
-    '--cover-package=app',
+    '--cover-package=app'
 ]
 
 # Database

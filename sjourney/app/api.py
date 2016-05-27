@@ -1,7 +1,36 @@
+from django.contrib.auth.models import User
 from rest_framework import generics
+from rest_framework.permissions import IsAdminUser
 
-from .serializers import PictureSerializer
-from .models import Picture
+from serializers import UserSerializer, SocialAuthUserSerializer
+from serializers import PictureSerializer, CategorySerializer
+from models import Picture, SocialAuthUser, Category
+
+
+class UserListAPIView(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = (IsAdminUser,)
+
+
+class SocialAuthUserListAPIView(generics.ListAPIView):
+    queryset = SocialAuthUser.objects.all()
+    serializer_class = SocialAuthUserSerializer
+
+
+class SocialAuthUserDetailAPIView(generics.RetrieveAPIView):
+    queryset = SocialAuthUser.objects.all()
+    serializer_class = SocialAuthUserSerializer
+
+
+class CategoryListAPIView(generics.ListCreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+
+class CategoryDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 
 
 class PictureListAPIView(generics.ListCreateAPIView):
