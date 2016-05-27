@@ -2,20 +2,21 @@
   <div class="sidebar">
     <div class="ui fixed inverted menu">
       <div class="ui container">
-          <a class="toc item">
-            <i class="sidebar icon"></i>
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a href="#" class="header item">
+          <img class="logo" src="//s32.postimg.org/oog38bkut/image.png">
+          Sjourney
+        </a>
+        <div class="right item">
+          Hey, {{ user }}!
+          <a href="/logout/" class="ui header item">
+          Log out
           </a>
-          <a href="#" class="header item">
-            <img class="logo" src="//s32.postimg.org/oog38bkut/image.png">
-            Sjourney
-          </a>
-          <div class="right item">
-            Hey, {{ user }}!
-            <a href="/logout/" class="ui header item">
-            Log out
-            </a>
-          </div>
-          <steps></steps>
+        </div>
+        <steps></steps>
+        <router-view></router-view>
       </div>
     </div>
   </div>
@@ -31,7 +32,6 @@ export default {
       // with hot-reload because the reloaded component
       // preserves its current state and we are modifying
       // its initial state.
-      msg: 'Welcome to the dashboard!',
       user: '{{ user.get_full_name }}'
     }
   },

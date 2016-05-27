@@ -5,6 +5,7 @@ import VueResource from 'vue-resource'
 import Base from './Base'
 import App from './App'
 import Home from './Home'
+import Steps from './components/Steps'
 
 // Apply VueResource and VueRouter to our Vue instance
 Vue.use(VueResource)
@@ -18,7 +19,12 @@ router.map({
     component: Home
   },
   '/app': {
-    component: App
+    component: App,
+    subRoutes: {
+      '/effects': {
+        component: Steps
+      }
+    }
   }
 })
 

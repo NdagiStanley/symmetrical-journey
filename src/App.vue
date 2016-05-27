@@ -1,20 +1,24 @@
 <template>
   <div id="app">
-    <sidebar></sidebar>
+    <menubar></menubar>
   </div>
 </template>
 
 <script>
-import Sidebar from './components/Sidebar'
+import Menubar from './components/Menubar'
 
 export default {
   components: {
-    Sidebar
+    Menubar
   }
 }
 </script>
 
 <style>
+html {
+  height: 100%;
+}
+
 #app {
   color: #2c3e50;
   margin-top: 0;
