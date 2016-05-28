@@ -20,7 +20,7 @@ from sjourney.app.api import UserListAPIView, SocialAuthUserListAPIView
 from sjourney.app.api import SocialAuthUserDetailAPIView
 from sjourney.app.api import CategoryListAPIView, CategoryDetailAPIView
 from sjourney.app.api import PictureListAPIView, PictureDetailAPIView
-
+import settings
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -36,5 +36,9 @@ urlpatterns = [
     url(r'^api/v1/pics/category/(?P<pk>[0-9]+)', CategoryDetailAPIView.as_view()),
     url(r'^api/v1/pics/$', PictureListAPIView.as_view()),
     url(r'^api/v1/pics/(?P<pk>[0-9]+)', PictureDetailAPIView.as_view()),
+
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.MEDIA_ROOT,
+    }),
     url(r'^docs/', include('rest_framework_docs.urls')),
 ]
