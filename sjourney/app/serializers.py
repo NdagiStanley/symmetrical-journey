@@ -38,7 +38,8 @@ class PictureSerializer(serializers.ModelSerializer):
         picture = Picture.objects.filter(
             uploader=user_id, id=picture_id)
         if picture:
-            picture.uploaded_image = serializer.request.data.get('uploaded_image', picture.uploaded_image)
+            picture.uploaded_image = serializer.request.data.get(
+                'uploaded_image', picture.uploaded_image)
             picture.save()
             return Response(
                 {"message": "Picture '{}' updated successfully".format(picture.id)},
