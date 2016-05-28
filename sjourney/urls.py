@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url, patterns, include
 from django.contrib import admin
 from sjourney.app.views import HomeView, AppView, logout
+from sjourney.app.api import UserListAPIView, SocialAuthUserListAPIView
+from sjourney.app.api import SocialAuthUserDetailAPIView
+from sjourney.app.api import CategoryListAPIView, CategoryDetailAPIView
 from sjourney.app.api import PictureListAPIView, PictureDetailAPIView
 
 
@@ -26,6 +29,11 @@ urlpatterns = [
     url(r'^home/$', AppView.as_view()),
     url(r'^logout/$', logout),
 
+    url(r'^api/v1/users/$', UserListAPIView.as_view()),
+    url(r'^api/v1/susers/$', SocialAuthUserListAPIView.as_view()),
+    url(r'^api/v1/susers/(?P<pk>[0-9]+)',SocialAuthUserDetailAPIView.as_view()),
+    url(r'^api/v1/pics/category/$', CategoryListAPIView.as_view()),
+    url(r'^api/v1/pics/category/(?P<pk>[0-9]+)', CategoryDetailAPIView.as_view()),
     url(r'^api/v1/pics/$', PictureListAPIView.as_view()),
     url(r'^api/v1/pics/(?P<pk>[0-9]+)', PictureDetailAPIView.as_view()),
     url(r'^docs/', include('rest_framework_docs.urls')),
