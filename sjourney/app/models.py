@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 from django.db import models
 from sjourney import settings
 
-# fb_user = settings.AUTH_USER_MODEL
 from django.contrib.auth.models import User
 from django.utils import timezone
 

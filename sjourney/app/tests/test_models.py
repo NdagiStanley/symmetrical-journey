@@ -42,6 +42,7 @@ class ModelTest(TestCase):
         """Test the fields of social_auth_user model"""
         self.assertEqual(self.suser.id, 1)
         self.assertEqual(self.suser.user, 1)
+        self.assertEqual(self.suser.provider, "facebook")
 
     def test_picture_fields(self):
         """Test the fields of picture model"""
