@@ -2,10 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 
-import Base from './Base'
+// import Base from './Base'
 import App from './App'
 import Home from './Home'
 import Steps from './components/Steps'
+
+Vue.config.delimiters = ['[[', ']]']
 
 // Apply VueResource and VueRouter to our Vue instance
 Vue.use(VueResource)
@@ -30,7 +32,7 @@ router.map({
 
 // Any invalid route will redirect to home
 router.redirect({
-  '*': '/home'
+  '*': '/app'
 })
 
-router.start(Base, '#sjourney')
+router.start(App, '#sjourney')

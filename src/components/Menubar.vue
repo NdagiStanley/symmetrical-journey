@@ -10,7 +10,7 @@
           Sjourney
         </a>
         <div class="right item">
-          Hey, {{ user }}!
+          Hey, {{ user.get_full_name }}
           <a href="/logout/" class="ui header item">
           Log out
           </a>
@@ -32,7 +32,6 @@ export default {
       // with hot-reload because the reloaded component
       // preserves its current state and we are modifying
       // its initial state.
-      user: '{{ user.get_full_name }}'
     }
   },
   components: {

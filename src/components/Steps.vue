@@ -28,7 +28,7 @@
       <p></p>
     </div>
     <div align="center">
-      <img class="ui centered medium image" src="//semantic-ui.com/images/wireframe/image.png">
+      <img class="ui centered medium image" src="/media/pics/stanmd.jpg">
       <div class="ui buttons">
         <button class="ui button">Cancel</button>
         <div class="or"></div>
@@ -40,17 +40,36 @@
       <div class="ui clearing divider">
       </div>
       <div class="fx_images ui small images">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <span>Username</span>
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
+        <a>
+        <img src="/media/previews/b_w.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/detail.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/blur.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/emboss.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/upside_down.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/find_edges.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/contour.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/contrast.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/bright.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/pixelate.thumbnail">
+        </a>
       </div>
     </div>
   </div>

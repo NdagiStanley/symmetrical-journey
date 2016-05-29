@@ -10,7 +10,7 @@ Django Powered Photo Editing Application
 
 ####End Date
 
-24 May 2016
+27 May 2016
 
 ##Application Overview
 
@@ -38,8 +38,10 @@ The user will be able categorise their images.
 
     **1**
 
-~3. Integrate Vue with Django~ Abandoned
+~3. Integrate Vue with Django~
 
     **2**
 
 4. Functionality (Break it down)
+
+5.

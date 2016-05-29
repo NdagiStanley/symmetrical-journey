@@ -11,15 +11,14 @@
     <script src=//cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.2.0/semantic.min.js></script>
     <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
     <title>SJ - symmetricalJourney</title>
-    <link href="{% static 'app.fea5b50e80ec4b11251db7999eba73ed.css' %}" rel=stylesheet>
+    <link href="{% static 'app.c383bc9611790779e61f7c839fc5ab8e.css' %}" rel=stylesheet>
 </head>
 
-<body>{% if user and not user.is_anonymous %}
-    <app></app>{% else %}
-    <div class=landing>
-        <home></home>
-    </div>{% endif %}
-    <script src="{% static 'app.54bea3213b7115cdbd22.js' %}"></script>
+<body>
+    <div id=sjourney>
+        <app></app>
+    </div>
+    <script src="{% static 'app.c387970d8cd5ed508b52.js' %}"></script>
 </body>
 
 </html>
