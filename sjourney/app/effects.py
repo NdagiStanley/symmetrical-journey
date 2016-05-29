@@ -1,6 +1,5 @@
 from PIL import Image, ImageFilter, ImageEnhance
 
-
 def Effect(effect, url):
     """
     Accepts effect as an integer
@@ -36,7 +35,6 @@ def Effect(effect, url):
         pic = image.filter(ImageFilter.FIND_EDGES)
 
     elif effect == 7:
-        # pic = image.transpose(FLIP_LEFT_RIGHT)
         pic = image.filter(ImageFilter.CONTOUR)
 
     # Increase contrast by 30%
