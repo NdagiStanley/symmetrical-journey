@@ -1,22 +1,23 @@
 <template>
-  <div class="steps">
+  <div class="dashboard">
     <div class="ui three top attached steps">
-      <div class="active step">
-        <a v-link="'/app'">
+      <div class="step">
+        <a v-link="'/'">
         <div class="content">
           <div class="title"><i class="upload icon"></i>Upload</div>
           <div class="description">Upload the picture</div>
         </div>
         </a>
       </div>
-      <div class="step">
-        <a v-link="'/effects'">
+      <div class="active step">
+        <a v-link="'/dashboard'">
         <div class="content">
           <div class="title"><i class="magic icon"></i>Spice it up</div>
           <div class="description">Select effects to the photos</div>
         </div>
         </a>
       </div>
+      hghgh
       <div class="disabled step">
         <div class="content">
           <div class="title"><i class="share icon"></i>Share</div>
@@ -24,15 +25,16 @@
         </div>
       </div>
     </div>
-    <div class="ui attached segment">
-      <p></p>
-    </div>
     <div align="center">
-      <img class="ui centered medium image" src="//semantic-ui.com/images/wireframe/image.png">
+      <img class="ui centered medium image" src="/media/pics/stanmd.jpg">
       <div class="ui buttons">
         <button class="ui button">Cancel</button>
         <div class="or"></div>
         <button class="ui positive button"><i class="save icon"></i>Save</button>
+        <div class="or"></div>
+        <a v-link="{ path: '/share/', replace: true }">
+        <button class="ui secondary button"><i class="share icon"></i>Share</button>
+        </a>
       </div>
     </div>
     <div class="ui segment">
@@ -40,17 +42,37 @@
       <div class="ui clearing divider">
       </div>
       <div class="fx_images ui small images">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <span>Username</span>
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
-        <img src="//semantic-ui.com/images/wireframe/image.png">
+        <span>Black and White</span>
+        <a>
+        <img src="/media/previews/b_w.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/detail.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/blur.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/emboss.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/upside_down.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/find_edges.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/contour.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/contrast.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/bright.thumbnail">
+        </a>
+        <a>
+        <img src="/media/previews/pixelate.thumbnail">
+        </a>
       </div>
     </div>
   </div>

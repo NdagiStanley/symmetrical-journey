@@ -6,20 +6,17 @@
     <meta charset=utf-8>
     <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
     <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-    <link rel="shortcut icon" type=image/png href=http://s32.postimg.org/oog38bkut/image.png>
+
     <link rel=stylesheet type=text/css href=//cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.2.0/semantic.min.css>
     <script src=//cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.2.0/semantic.min.js></script>
     <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
     <title>SJ - symmetricalJourney</title>
-    <link href="{% static 'app.fea5b50e80ec4b11251db7999eba73ed.css' %}" rel=stylesheet>
+    <link href="{% static 'home/app.f6d64eb11e92f5c0736500bc17d36324.css' %}" rel=stylesheet>
 </head>
 
-<body>{% if user and not user.is_anonymous %}
-    <app></app>{% else %}
-    <div class=landing>
-        <home></home>
-    </div>{% endif %}
-    <script src="{% static 'app.54bea3213b7115cdbd22.js' %}"></script>
+<body>
+    <app></app>
+    <script src="{% static 'home/app.08776662f96bb7262fdf.js' %}"></script>
 </body>
 
 </html>
