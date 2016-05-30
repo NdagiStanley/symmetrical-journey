@@ -42,12 +42,26 @@
   <div id="pics" align="center">
     <h2>Pictures</h2>
   </div>
+  <div>
+  <div class="fx_images ui small images" v-for="pic in pics">
+    <img src="[[ pic.uploaded_image ]]">
+  </div>
+  </div>
 </template>
-<style type="text/css">
-  .upload {
-    align: center;
-}
-</style>
 
 <script>
+export default {
+  ready: function () {
+    // GET request
+    this.$http.get('/api/v1/pics/').then(function (response) {
+      this.$set('pics', response.data)
+      console.log(response.data)
+      if (response.data.results.length === 0) {
+        this.$set('list', [])
+      }
+    }, function (response) {
+      // window.location.assign('/')
+    })
+  }
+}
 </script>
