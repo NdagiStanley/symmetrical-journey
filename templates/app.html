@@ -10,46 +10,25 @@
     <script src=//cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.2.0/semantic.min.js></script>
     <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
     <title>SJ - symmetricalJourney</title>
-    <link href="{% static 'app.bbcf66f06863c103b5e5c4fa5910055b.css' %}" rel=stylesheet>
+    <link href="{% static 'app.6704c08797bb37e584aa133521fe6292.css' %}" rel=stylesheet>
 </head>
 
 <body>
     <div class="ui fixed inverted menu">
-        <div class="ui container"><a class="toc item"><i class="sidebar icon"></i> </a>
+        <div class="ui container">
             <a href=# class="header item"><img class=logo src=//s32.postimg.org/oog38bkut/image.png> Sjourney</a>
             <div class="right item">Hey, {{ user.get_full_name }} <a href=/logout/ class="ui header item">Log out</a></div>
-            <steps></steps>
-            <router-view></router-view>
         </div>
     </div>
-    <app></app>
-    <script src="{% static 'app.98aefa0c5ea0664d9089.js' %}"></script>
-    <script type=text/javascript src=//></script>
+    <div id=app>
+        <app></app>
+        <script src="{% static 'app.6c99293cb7f8b32e9187.js' %}"></script>
+    </div>
 </body>
 <style type=text/css>
 .ui.menu .item img.logo {
     width: 30px;
     height: 30px
-}
-
-.main.container {
-    margin-top: 7em;
-}
-
-.wireframe {
-    margin-top: 2em;
-}
-
-.ui.footer.segment {
-    margin: 5em 0em 0em;
-    padding: 5em 0em;
-}
-
-.dashboard {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
 }
 </style>
 
