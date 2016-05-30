@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url('', include('social.apps.django_app.urls', namespace='social')),
     url(r'^$', HomeView.as_view()),
-    url(r'^home/$', AppView.as_view()),
+    url(r'^app/$', AppView.as_view()),
     url(r'^logout/$', logout),
 
     url(r'^api/v1/users/$', UserListAPIView.as_view()),

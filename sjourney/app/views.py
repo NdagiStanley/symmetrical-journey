@@ -11,7 +11,7 @@ class HomeView(TemplateView):
 
 @method_decorator(login_required(login_url='/'), name='dispatch')
 class AppView(TemplateView):
-    template_name = 'home.html'
+    template_name = 'app.html'
 
 
 def logout(request):
