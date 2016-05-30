@@ -7,7 +7,7 @@
         <i class="right arrow icon"></i>
       </div>
     </a>
-    <p>{{ msg }}</p>
+    <p>[[ msg ]]</p>
   </div>
 </template>
 
