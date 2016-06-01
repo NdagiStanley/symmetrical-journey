@@ -28,24 +28,36 @@
   <div id="upload" align="center">
     <div>
       <h2>Select an image</h2>
-      <input type="file" @change="onFileChange">
-    </div>
-    <div>
-      <button class="ui button">
-        <a v-link="'/dashboard'">
-        <i class="upload icon"></i>Upload
-        </a>
+      <form>
+      <input type="file" v-el="fileInput" id="image" class="form-control" v-model="newInput.image">
+      <button class="ui button" v-on:click="onSubmitForm">
+        <i class="upload icon"></i>
+        Upload
       </button>
+      </form>
     </div>
   </div>
-  <hr>
-  <div id="pics" align="center">
-    <h2>Pictures</h2>
+  <h4 class="ui horizontal divider header">
+  <i class="camera icon"></i>
+  Your Pictures
+</h4>
+  <div v-if="pics">
+    <div class="ui three stackable cards">
+      <div class="fx_images ui small images" v-for="pic in pics">
+        <a class="red card">
+          <div class="circular image">
+            <img src="[[ pic.uploaded_image ]]">
+            <span>[[ pic.name ]]</span>
+          </div>
+        </a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>
-  <div class="fx_images ui small images" v-for="pic in pics">
-    <img src="[[ pic.uploaded_image ]]">
-  </div>
+  <div v-else align="center">
+    <i class="ui huge frown icon"></i>
+    <h4>You have no photos on sJourney
+    <br>Why not upload one or more ...</h4>
   </div>
 </template>
 
@@ -62,6 +74,24 @@ export default {
     }, function (response) {
       // window.location.assign('/')
     })
+  },
+  methods: {
+    onSubmitForm: function (e) {
+      e.preventDefault()
+      var input = this.newInput
+      // this.newInput = {name: '', image: ''}
+      // var category = {
+      //   text: input.name
+      // }
+      // input.image = this.$$.fileInput.files // Get the input as the DOM and get the files, With the v-model you are getting the name of the file
+      console.log(input)
+      // this.Categories.push(category)
+      this.$http.post('/api/v1/pics/', input).then(function (response) {
+        console.log(response.data)
+      }, function (response) {
+      // window.location.assign('/')
+      })
+    }
   }
 }
 </script>

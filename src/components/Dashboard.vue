@@ -17,7 +17,6 @@
         </div>
         </a>
       </div>
-      hghgh
       <div class="disabled step">
         <div class="content">
           <div class="title"><i class="share icon"></i>Share</div>
