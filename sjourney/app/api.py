@@ -1,3 +1,5 @@
+import effects
+from sjourney.settings import MEDIA_URL
 from django.contrib.auth.models import User
 from rest_framework import generics
 from rest_framework.permissions import IsAdminUser
@@ -50,8 +52,24 @@ class PictureListAPIView(generics.ListCreateAPIView):
 class PictureDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     """
     docstring for PictureDetailAPIView
-    endpoint = '/api/v1/pics/<id>' path
+    endpoint = '/api/v1/pics/<id>' path or
+    endpoint = '/api/v1/pics/<id>?filter="abcd"' path
     """
 
-    queryset = Picture.objects.all()
     serializer_class = PictureSerializer
+
+    def get_queryset(self):
+        """
+        This view should return one or a list of all the filters for
+        the image as determined by the filter portion of the URL.
+        """
+        all_pictures = Picture.objects.all()
+        filter = self.request.query_params.get('filter', None)
+        if not filter:
+            return all_pictures
+        elif int(filter) > 10 or int(filter) <= 0:
+            return all_pictures
+        picture = Picture.objects.filter(id=self.kwargs['pk']).first()
+        effects.Effect(int(filter), picture.uploaded_image).save(
+            MEDIA_URL.strip("/") + "/editted.jpg")
+        return {"URL": MEDIA_URL + "editted.jpg"}

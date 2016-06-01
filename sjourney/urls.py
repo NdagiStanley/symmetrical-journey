@@ -32,8 +32,10 @@ urlpatterns = [
     url(r'^api/v1/users/$', UserListAPIView.as_view()),
     url(r'^api/v1/susers/$', SocialAuthUserListAPIView.as_view()),
     url(r'^api/v1/susers/(?P<pk>[0-9]+)',SocialAuthUserDetailAPIView.as_view()),
-    url(r'^api/v1/pics/category/$', CategoryListAPIView.as_view()),
-    url(r'^api/v1/pics/category/(?P<pk>[0-9]+)', CategoryDetailAPIView.as_view()),
+
+    url(r'^api/v1/category/$', CategoryListAPIView.as_view()),
+    url(r'^api/v1/category/(?P<pk>[0-9]+)/pics/', CategoryDetailAPIView.as_view()),
+
     url(r'^api/v1/pics/$', PictureListAPIView.as_view()),
     url(r'^api/v1/pics/(?P<pk>[0-9]+)', PictureDetailAPIView.as_view()),
 

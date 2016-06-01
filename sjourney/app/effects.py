@@ -10,12 +10,14 @@ def Effect(effect, url):
     # Access the image and convert to RGBA to allow the filters
     try:
         image = Image.open(url).convert('RGBA')
+        effect = int(effect)
     except:
         print("cannot open image file error")
         return None
 
     # Black and White
     if effect == 1:
+        print "A"
         pic = image.convert("L")
 
     # FILTERS
