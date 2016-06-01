@@ -42,15 +42,22 @@
   Your Pictures
 </h4>
   <div v-if="pics">
-    <div class="ui three stackable cards">
-      <div class="fx_images ui small images" v-for="pic in pics">
-        <a class="red card">
-          <div class="circular image">
-            <img src="[[ pic.uploaded_image ]]">
-            <span>[[ pic.name ]]</span>
-          </div>
-        </a>
+    <div class="ui link cards" >
+      <div class="card" v-for="pic in pics">
+        <div class="image">
+          <img src="[[ pic.uploaded_image ]]">
         </div>
+        <div class="content">
+          <div class="header">[[ pic.name ]]</div>
+        <div class="extra content">
+          <span class="right floated">
+            [[ pic.size ]]
+          </span>
+          <span>
+            [[ pic.category.name ]]
+          </span>
+        </div>
+      </div>
       </div>
     </div>
   </div>
@@ -95,3 +102,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .image {
+    padding: 5px;
+  }
+</style>

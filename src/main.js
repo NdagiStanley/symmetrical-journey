@@ -8,6 +8,7 @@ import Dashboard from './components/Dashboard'
 import Share from './components/Share'
 
 Vue.config.delimiters = ['[[', ']]']
+Vue.config.debug = true
 
 // Apply VueResource and VueRouter to our Vue instance
 Vue.use(VueResource)
