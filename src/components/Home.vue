@@ -61,9 +61,9 @@
     <br>Why not upload one or more ...</h4>
   </div>
   <div v-if="pics">
-    <div class="ui cards" >
+    <div class="ui six cards" >
       <div class="card" v-for="pic in pics">
-        <div class="image">
+        <div class="image" v-on:click"splashPic($index, pic.id)">
           <img src="[[ pic.uploaded_image ]]">
         </div>
         <div class="content">
@@ -131,6 +131,12 @@ export default {
       }, function (response) {
       })
     },
+    splashPic: function (id, picId) {
+      this.$http.get('/api/v1/pics/' + picId).then(function (response) {
+        this.$set('splashPicture', response.data)
+      }, function (response) {
+      })
+    },
     onSubmitForm: function (e) {
       e.preventDefault()
       var input = this.newInput
@@ -146,9 +152,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-  .image {
-    padding: 5px;
-  }
-</style>
