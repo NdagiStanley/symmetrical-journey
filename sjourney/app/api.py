@@ -57,6 +57,7 @@ class PictureDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     """
 
     serializer_class = PictureSerializer
+    authentication_classes = (CsrfExemptSessionAuthentication,)
 
     def get_queryset(self):
         """

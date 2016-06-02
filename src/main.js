@@ -10,6 +10,7 @@ import Share from './components/Share'
 
 Vue.config.delimiters = ['[[', ']]']
 Vue.config.debug = true
+Vue.config.devtools = true
 
 // Apply VueResource and VueRouter to our Vue instance
 Vue.use(VueResource)

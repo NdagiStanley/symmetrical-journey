@@ -61,7 +61,7 @@
     <br>Why not upload one or more ...</h4>
   </div>
   <div v-if="pics">
-    <div class="ui link cards" >
+    <div class="ui cards" >
       <div class="card" v-for="pic in pics">
         <div class="image">
           <img src="[[ pic.uploaded_image ]]">
@@ -69,12 +69,11 @@
         <div class="content">
           <div class="header">[[ pic.name ]]</div>
         <div class="extra content">
+          <a v-on:click="deletePic($index, pic.id)">
           <span class="right floated">
-            [[ pic.size ]]
+            <i class="ui delete icon"></i>
           </span>
-          <span>
-            [[ pic.category.name ]]
-          </span>
+          </a>
         </div>
       </div>
       </div>
@@ -124,12 +123,20 @@ export default {
         this.$set('no_data', true)
       })
     },
+    deletePic: function (id, picId) {
+      this.$http.delete('/api/v1/pics/' + picId).then(function (response) {
+        this.pics.$remove(id)
+        this.$set('status', 'Picture deleted')
+        this.checkPictures()
+      }, function (response) {
+      })
+    },
     onSubmitForm: function (e) {
       e.preventDefault()
       var input = this.newInput
       console.log(input)
       // var data = {uploaded_image: input, category: this.category}
-      var data = {uploaded_image: input, category: this.category.id}
+      var data = {uploaded_image: input, category: this.category}
       console.log(data)
       this.$http.post('/api/v1/pics/', data).then(function (response) {
       }, function (response) {
