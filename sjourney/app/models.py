@@ -33,7 +33,7 @@ class Picture(models.Model):
     title = models.CharField(max_length=255)
     size = models.CharField(max_length=255, blank=True)
     name = models.CharField(max_length=255, blank=True)
-    category = models.ForeignKey(Category, related_name="pictures", default=1)
+    category = models.ForeignKey(Category, related_name="pictures")
     uploaded_image = models.ImageField(upload_to='pics/', blank=False)
     edited_image = models.ImageField(upload_to='edited/', blank=True)
     edited = models.BooleanField(default=False)

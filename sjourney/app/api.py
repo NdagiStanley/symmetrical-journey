@@ -8,7 +8,7 @@ from rest_framework.permissions import IsAdminUser
 from serializers import UserSerializer, SocialAuthUserSerializer
 from serializers import PictureSerializer, CategorySerializer
 from models import Picture, SocialAuthUser, Category
-
+from authentication import CsrfExemptSessionAuthentication
 
 class UserListAPIView(generics.ListCreateAPIView):
     queryset = User.objects.all()
@@ -29,11 +29,13 @@ class SocialAuthUserDetailAPIView(generics.RetrieveAPIView):
 class CategoryListAPIView(generics.ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    authentication_classes = (CsrfExemptSessionAuthentication,)
 
 
 class CategoryDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    authentication_classes = (CsrfExemptSessionAuthentication,)
 
 
 class PictureListAPIView(generics.ListCreateAPIView):
@@ -44,10 +46,7 @@ class PictureListAPIView(generics.ListCreateAPIView):
 
     queryset = Picture.objects.all()
     serializer_class = PictureSerializer
-
-    def perform_create(self, serializer):
-        """The user will be associated with the photo as the uploader"""
-        serializer.save(uploader=self.request.user)
+    authentication_classes = (CsrfExemptSessionAuthentication,)
 
 
 class PictureDetailAPIView(generics.RetrieveUpdateDestroyAPIView):

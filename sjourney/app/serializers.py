@@ -19,15 +19,17 @@ class PictureSerializer(serializers.ModelSerializer):
     class Meta:
         model = Picture
         fields = ('id', 'uploader', 'name', 'uploaded_image', 'edited_image',
-                  'date_created', 'date_modified', 'size', 'category')
+                  'date_created', 'date_modified', 'category')
 
-        read_only_fields = ('id', 'date_created')
+        read_only_fields = ('id', 'edited_image',
+            'date_created', 'name', 'uploader', 'size')
 
     def create(self, validated_data):
         picture = Picture(
             uploaded_image=validated_data['uploaded_image'],
             uploader=self.context.get('request').user,
             name=os.path.basename(validated_data['uploaded_image'].name),
+            category=validated_data['category'],
             )
         picture.save()
         return picture
