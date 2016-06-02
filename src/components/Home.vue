@@ -29,25 +29,25 @@
     <div v-if="no_category">
       <h2>Create a category</h2>
       <form>
-      <input type="text" class="form-control" v-model="categoryName">
-      <button class="ui button" v-on:click="onCreateCategory">
-        <i class="plus icon"></i>
-        Create
-      </button>
+        <input type="text" class="form-control" v-model="categoryName">
+        <button class="ui button" v-on:click="onCreateCategory">
+          <i class="plus icon"></i>
+          Create
+        </button>
       </form>
     </div>
     <div v-else>
       <h2>Select an image</h2>
       <form>
-      <input type="file" v-el="fileInput" id="image" class="form-control" v-model="newInput">
-      <div class="ui dropdown">
-        <div class="text">[[ category.name ]]</div>
-        <i class="dropdown icon"></i>
-      </div>
-      <button class="ui button" v-on:click="onSubmitForm">
-        <i class="upload icon"></i>
-        Upload
-      </button>
+        <input type="file" v-el:fileInput v-model="newInput"  name="newImage" class="form-control">
+        <div class="ui dropdown">
+          <div class="text">[[ category.name ]]</div>
+          <i class="dropdown icon"></i>
+        </div>
+        <button class="ui button" v-on:click="onSubmitForm">
+          <i class="upload icon"></i>
+          Upload
+        </button>
       </form>
     </div>
   </div>
@@ -63,7 +63,7 @@
   <div v-if="pics">
     <div class="ui six cards" >
       <div class="card" v-for="pic in pics">
-        <div class="image" v-on:click"splashPic($index, pic.id)">
+        <div class="image">
           <img src="[[ pic.uploaded_image ]]">
         </div>
         <div class="content">
@@ -131,22 +131,15 @@ export default {
       }, function (response) {
       })
     },
-    splashPic: function (id, picId) {
-      this.$http.get('/api/v1/pics/' + picId).then(function (response) {
-        this.$set('splashPicture', response.data)
-      }, function (response) {
-      })
-    },
     onSubmitForm: function (e) {
       e.preventDefault()
-      var input = this.newInput
-      console.log(input)
-      // var data = {uploaded_image: input, category: this.category}
-      var data = {uploaded_image: input, category: this.category}
-      console.log(data)
-      this.$http.post('/api/v1/pics/', data).then(function (response) {
+      var fileUploadFormData = new window.FormData()
+      fileUploadFormData.append('uploaded_image', this.$els.fileinput.files[0])
+      fileUploadFormData.append('category', this.category.id)
+      this.$http.post('/api/v1/pics/', fileUploadFormData).then(function (response) {
+        this.checkPictures()
+        this.$set('newInput', '')
       }, function (response) {
-      // window.location.assign('/')
       })
     }
   }

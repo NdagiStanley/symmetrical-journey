@@ -1,5 +1,6 @@
 import os
 from rest_framework import serializers
+from drf_extra_fields.fields import Base64ImageField
 
 from django.contrib.auth.models import User
 from .models import Picture, SocialAuthUser, Category
@@ -16,6 +17,10 @@ class CategorySerializer(serializers.ModelSerializer):
 class PictureSerializer(serializers.ModelSerializer):
     """docstring for PictureSerializer"""
 
+    # uploaded_image = Base64ImageField(
+    #     max_length=None, use_url=True,
+    # )
+
     class Meta:
         model = Picture
         fields = ('id', 'uploader', 'name', 'uploaded_image', 'edited_image',
@@ -29,6 +34,7 @@ class PictureSerializer(serializers.ModelSerializer):
             uploaded_image=validated_data['uploaded_image'],
             uploader=self.context.get('request').user,
             name=os.path.basename(validated_data['uploaded_image'].name),
+            # size=os.path.basename(validated_data['uploaded_image'].size),
             category=validated_data['category'],
             )
         picture.save()
