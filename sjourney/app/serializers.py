@@ -18,7 +18,7 @@ class PictureSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Picture
-        fields = ('id', 'uploader', 'name', 'uploaded_image', 'editted_image',
+        fields = ('id', 'uploader', 'name', 'uploaded_image', 'edited_image',
                   'date_created', 'date_modified', 'size', 'category')
 
         read_only_fields = ('id', 'date_created')
@@ -43,9 +43,9 @@ class PictureSerializer(serializers.ModelSerializer):
             picture.save()
             return Response(
                 {"message": "Picture '{}' updated successfully".format(picture.id)},
-                    status=status.HTTP_200_OK)
+                    status = status.HTTP_200_OK)
         return Response({"error": "You cannot update this picture"},
-            status=status.HTTP_404_NOT_FOUND)
+            status = status.HTTP_404_NOT_FOUND)
 
 
 class UserSerializer(serializers.ModelSerializer):

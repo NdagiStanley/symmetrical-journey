@@ -35,8 +35,8 @@ class Picture(models.Model):
     name = models.CharField(max_length=255, blank=True)
     category = models.ForeignKey(Category, related_name="pictures", default=1)
     uploaded_image = models.ImageField(upload_to='pics/', blank=False)
-    editted_image = models.ImageField(upload_to='editted/', blank=True)
-    editted = models.BooleanField(default=False)
+    edited_image = models.ImageField(upload_to='edited/', blank=True)
+    edited = models.BooleanField(default=False)
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
 

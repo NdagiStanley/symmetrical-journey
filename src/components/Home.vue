@@ -41,6 +41,11 @@
   <i class="camera icon"></i>
   Your Pictures
 </h4>
+  <div v-if="no_pics" align="center">
+    <i class="ui huge frown icon"></i>
+    <h4>You have no photos on sJourney
+    <br>Why not upload one or more ...</h4>
+  </div>
   <div v-if="pics">
     <div class="ui link cards" >
       <div class="card" v-for="pic in pics">
@@ -62,9 +67,7 @@
     </div>
   </div>
   <div v-else align="center">
-    <i class="ui huge frown icon"></i>
-    <h4>You have no photos on sJourney
-    <br>Why not upload one or more ...</h4>
+  <h4>Please try reloading</h4>
   </div>
 </template>
 
@@ -75,11 +78,10 @@ export default {
     this.$http.get('/api/v1/pics/').then(function (response) {
       this.$set('pics', response.data)
       console.log(response.data)
-      if (response.data.results.length === 0) {
-        this.$set('list', [])
+      if (response.data.length === 0) {
+        this.$set('no_pics', true)
       }
     }, function (response) {
-      // window.location.assign('/')
     })
   },
   methods: {
