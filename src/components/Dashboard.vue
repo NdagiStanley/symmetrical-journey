@@ -25,7 +25,7 @@
       </div>
     </div>
     <div align="center">
-      <img class="ui centered medium image" src="/media/pics/stanmd.jpg">
+      <img class="ui centered medium image" src="[[ pic.edited_image ]]">
       <div class="ui buttons">
         <button class="ui button">Cancel</button>
         <div class="or"></div>
@@ -41,35 +41,34 @@
       <div class="ui clearing divider">
       </div>
       <div class="fx_images ui small images">
-        <span>Black and White</span>
-        <a>
+        <a href="#">
         <img src="/media/previews/b_w.thumbnail">
         </a>
-        <a>
+        <a href="#">
         <img src="/media/previews/detail.thumbnail">
         </a>
-        <a>
+        <a href="#">
         <img src="/media/previews/blur.thumbnail">
         </a>
-        <a>
+        <a href="#">
         <img src="/media/previews/emboss.thumbnail">
         </a>
-        <a>
+        <a href="#">
         <img src="/media/previews/upside_down.thumbnail">
         </a>
-        <a>
+        <a href="#">
         <img src="/media/previews/find_edges.thumbnail">
         </a>
-        <a>
+        <a href="#">
         <img src="/media/previews/contour.thumbnail">
         </a>
-        <a>
+        <a href="#">
         <img src="/media/previews/contrast.thumbnail">
         </a>
-        <a>
+        <a href="#">
         <img src="/media/previews/bright.thumbnail">
         </a>
-        <a>
+        <a href="#">
         <img src="/media/previews/pixelate.thumbnail">
         </a>
       </div>
@@ -84,3 +83,21 @@
   justify-content: center;
 }
 </style>
+
+<script>
+  import { getId } from '../getters'
+  export default {
+    ready: function () {
+      // GET request
+
+      console.log(this.imageId)
+      console.log('Hey')
+    },
+    vuex: {
+      getters: {
+        // note that you're passing the function itself, and not the value 'getId()'
+        imageId: getId
+      }
+    }
+  }
+</script>

@@ -39,7 +39,7 @@
     <div v-else>
       <h2>Select an image</h2>
       <form>
-        <input type="file" v-el:fileInput v-model="newInput"  name="newImage" class="form-control">
+        <input type="file" v-el:fileInput v-model="newInput" class="form-control">
         <div class="ui dropdown">
           <div class="text">[[ category.name ]]</div>
           <i class="dropdown icon"></i>
@@ -61,9 +61,9 @@
     <br>Why not upload one or more ...</h4>
   </div>
   <div v-if="pics">
-    <div class="ui six cards" >
+    <div class="ui six link cards">
       <div class="card" v-for="pic in pics">
-        <div class="image">
+        <div class="image" v-on:click="splash(pic.id)">
           <img src="[[ pic.uploaded_image ]]">
         </div>
         <div class="content">
@@ -85,6 +85,8 @@
 </template>
 
 <script>
+// import { splashImage } from '../actions'
+import store from '../store'
 export default {
   ready: function () {
     // GET request
@@ -116,15 +118,20 @@ export default {
       this.$http.get('/api/v1/pics/').then(function (response) {
         if (response.data.length === 0) {
           this.$set('no_pics', true)
+          this.$set('no_data', false)
         } else {
           this.$set('pics', response.data)
+          this.$set('no_pics', false)
+          this.$set('no_data', false)
         }
       }, function (response) {
         this.$set('no_data', true)
+        this.$set('no_pics', false)
       })
     },
     deletePic: function (id, picId) {
       this.$http.delete('/api/v1/pics/' + picId).then(function (response) {
+        console.log(picId)
         this.pics.$remove(id)
         this.$set('status', 'Picture deleted')
         this.checkPictures()
@@ -141,6 +148,13 @@ export default {
         this.$set('newInput', '')
       }, function (response) {
       })
+    }
+  },
+  vuex: {
+    actions: {
+      splash: function (e, picId) {
+        store.dispatch('SELECTED', picId)
+      }
     }
   }
 }

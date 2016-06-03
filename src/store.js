@@ -12,8 +12,8 @@ const state = {
 
 // Create an object storing various mutations. We will write the mutation
 const mutations = {
-  SELECTED (state) {
-    state.picId
+  SELECTED (state, id) {
+    state.picId = id
   }
 }
 
