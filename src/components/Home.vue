@@ -63,7 +63,7 @@
   <div v-if="pics">
     <div class="ui six link cards">
       <div class="card" v-for="pic in pics">
-        <div class="image" v-on:click="splash(pic.id)">
+        <div class="image" v-on:click="splash(pic.id)" v-link="'/dashboard'">
           <img src="[[ pic.uploaded_image ]]">
         </div>
         <div class="content">

@@ -25,9 +25,9 @@
       </div>
     </div>
     <div align="center">
-      <img class="ui centered medium image" src="[[ pic.edited_image ]]">
+      <img class="ui centered medium image" src="[[ pic ]]">
       <div class="ui buttons">
-        <button class="ui button">Cancel</button>
+        <button class="ui button" v-on:click="reset">RESET</button>
         <div class="or"></div>
         <button class="ui positive button"><i class="save icon"></i>Save</button>
         <div class="or"></div>
@@ -41,34 +41,34 @@
       <div class="ui clearing divider">
       </div>
       <div class="fx_images ui small images">
-        <a href="#">
+        <span v-on:click="effect(1)">
         <img src="/media/previews/b_w.thumbnail">
-        </a>
-        <a href="#">
+        </span>
+        <span v-on:click="effect(2)">
         <img src="/media/previews/detail.thumbnail">
-        </a>
-        <a href="#">
+        </span>
+        <span v-on:click="effect(3)">
         <img src="/media/previews/blur.thumbnail">
-        </a>
-        <a href="#">
+        </span>
+        <span v-on:click="effect(4)">
         <img src="/media/previews/emboss.thumbnail">
         </a>
-        <a href="#">
+        <span v-on:click="effect(5)">
         <img src="/media/previews/upside_down.thumbnail">
         </a>
-        <a href="#">
+        <span v-on:click="effect(6)">
         <img src="/media/previews/find_edges.thumbnail">
         </a>
-        <a href="#">
+        <span v-on:click="effect(7)">
         <img src="/media/previews/contour.thumbnail">
         </a>
-        <a href="#">
+        <span v-on:click="effect(8)">
         <img src="/media/previews/contrast.thumbnail">
         </a>
-        <a href="#">
+        <span v-on:click="effect(9)">
         <img src="/media/previews/bright.thumbnail">
         </a>
-        <a href="#">
+        <span v-on:click="effect(10)">
         <img src="/media/previews/pixelate.thumbnail">
         </a>
       </div>
@@ -85,19 +85,34 @@
 </style>
 
 <script>
-  import { getId } from '../getters'
-  export default {
-    ready: function () {
-      // GET request
-
-      console.log(this.imageId)
-      console.log('Hey')
+import { getId } from '../getters'
+export default {
+  ready: function () {
+    // GET request
+    this.$http.get('/api/v1/pics/' + this.imageId).then(function (response) {
+      this.$set('pic', response.data.uploaded_image)
+    }, function (response) {
+    })
+  },
+  vuex: {
+    getters: {
+      // note that you're passing the function itself, and not the value 'getId()'
+      imageId: getId
+    }
+  },
+  methods: {
+    effect: function (id) {
+      this.$http.get('/api/v1/pics/' + this.imageId + '?filter=' + id).then(function (response) {
+        this.$set('pic', response.data.edited_image)
+      }, function (response) {
+      })
     },
-    vuex: {
-      getters: {
-        // note that you're passing the function itself, and not the value 'getId()'
-        imageId: getId
-      }
+    reset: function () {
+      this.$http.get('/api/v1/pics/' + this.imageId).then(function (response) {
+        this.$set('pic', response.data.uploaded_image)
+      }, function (response) {
+      })
     }
   }
+}
 </script>
