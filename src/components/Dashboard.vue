@@ -31,9 +31,7 @@
         <div class="or"></div>
         <button class="ui positive button"><i class="save icon"></i>Save</button>
         <div class="or"></div>
-        <a v-link="{ path: '/share/', replace: true }">
-        <button class="ui secondary button"><i class="share icon"></i>Share</button>
-        </a>
+        <button class="ui secondary button" v-on:click="share(pic)"><i class="share icon"></i>Share</button>
       </div>
     </div>
     <div class="ui segment">
@@ -105,13 +103,16 @@ export default {
       this.$http.get('/api/v1/pics/' + this.imageId + '?filter=' + id).then(function (response) {
         this.$set('pic', response.data.edited_image)
       }, function (response) {
-      })
+      }, 2000)
     },
     reset: function () {
       this.$http.get('/api/v1/pics/' + this.imageId).then(function (response) {
         this.$set('pic', response.data.uploaded_image)
       }, function (response) {
       })
+    },
+    share: function (pic) {
+
     }
   }
 }

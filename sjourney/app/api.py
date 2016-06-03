@@ -53,7 +53,7 @@ class PictureDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     """
     docstring for PictureDetailAPIView
     endpoint = '/api/v1/pics/<id>' path or
-    endpoint = '/api/v1/pics/<id>?filter="abcd"' path
+    endpoint = '/api/v1/pics/<id>?filter="filter_id"' path
     """
 
     serializer_class = PictureSerializer
