@@ -20,7 +20,6 @@ class ModelTest(TestCase):
     def tearDown(self):
         """Clean the test db"""
         User.objects.all().delete()
-        SocialAuthUser.objects.all().delete()
         Category.objects.all().delete()
         Picture.objects.all().delete()
 
@@ -32,22 +31,17 @@ class ModelTest(TestCase):
         """Test the fields of user model"""
         self.assertEqual(self.user.username, 'md')
 
-    def social_auth_user_string_representation(self):
-        """Test the representation of social_auth_user instance"""
-        self.assertEqual(str(self.suser),
-            '<User #{} - Social Auth Provider {}>'.format(
-                self.suser.uid, self.suser.provider))
-
-    def social_auth_user_fields(self):
-        """Test the fields of social_auth_user model"""
-        self.assertEqual(self.suser.id, 1)
-        self.assertEqual(self.suser.user, 1)
-        self.assertEqual(self.suser.provider, "facebook")
+    def test_picture_string_representation(self):
+        """Test the representation of picture instance"""
+        self.assertEqual(str(self.picture),
+                         '<Picture {}>'.format(self.picture.name))
 
     def test_picture_fields(self):
         """Test the fields of picture model"""
-        self.assertEqual(self.picture.editted, False)
-        self.assertEqual(self.picture.uploader, self.user)
+        self.assertEqual(self.picture.edited, False)
+        self.assertIsNot(self.picture.uploaded_image, None)
+        self.assertEqual(self.picture.uploader.id, 1)
+        self.assertEqual(self.picture.category.id, 1)
 
     def test_category_string_representation(self):
         """Test the representation of Category instance"""
@@ -56,5 +50,5 @@ class ModelTest(TestCase):
 
     def test_category_fields(self):
         """Test the fields of category model"""
-        self.assertEqual(self.picture.editted, False)
-        self.assertEqual(self.picture.uploader, self.user)
+        self.assertEqual(self.category.name, 'Personal')
+        self.assertEqual(len(self.category.images), 1)
