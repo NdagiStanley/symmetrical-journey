@@ -5,14 +5,6 @@ from django.contrib.auth.models import User
 from .models import Picture, SocialAuthUser, Category
 
 
-class CategorySerializer(serializers.ModelSerializer):
-    """docstring for CategorySerializer"""
-
-    class Meta:
-        model = Category
-        fields = ('id', 'name', 'images')
-
-
 class PictureSerializer(serializers.ModelSerializer):
     """docstring for PictureSerializer"""
 
@@ -49,6 +41,17 @@ class PictureSerializer(serializers.ModelSerializer):
                     status = status.HTTP_200_OK)
         return Response({"error": "You cannot update this picture"},
             status = status.HTTP_404_NOT_FOUND)
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    """docstring for CategorySerializer"""
+
+    # images = PictureSerializer()
+
+    class Meta:
+        model = Category
+        # fields = ('id', 'name', 'images')
+        fields = ('id', 'name')
 
 
 class UserSerializer(serializers.ModelSerializer):

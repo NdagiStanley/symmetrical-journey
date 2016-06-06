@@ -29,13 +29,13 @@ class SocialAuthUserDetailAPIView(generics.RetrieveAPIView):
 class CategoryListAPIView(generics.ListCreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    authentication_classes = (CsrfExemptSessionAuthentication,)
+    # authentication_classes = (CsrfExemptSessionAuthentication,)
 
 
 class CategoryDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    authentication_classes = (CsrfExemptSessionAuthentication,)
+    # authentication_classes = (CsrfExemptSessionAuthentication,)
 
 
 class PictureListAPIView(generics.ListCreateAPIView):

@@ -112,7 +112,17 @@ export default {
       })
     },
     share: function (pic) {
-
+      window.FB.ui({
+        method: 'share',
+        mobile_iframe: true,
+        href: pic
+      }, function (response) {
+        if (response && !response.error_message) {
+          window.alert('Posting completed.')
+        } else {
+          window.alert('Error while posting.')
+        }
+      })
     }
   }
 }
