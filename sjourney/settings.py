@@ -51,11 +51,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_cleanup',
-    'django_nose',
     'sjourney.app',
     'rest_framework',
     'rest_framework_docs',
     'social.apps.django_app.default',
+    'django_nose',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -111,7 +111,7 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 # Tell nose to measure coverage on the app
 NOSE_ARGS = [
     '--with-coverage',
-    '--cover-package=sjourney.app'
+    '--cover-package=app',
 ]
 
 # Database

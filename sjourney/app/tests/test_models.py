@@ -12,7 +12,7 @@ class ModelTest(TestCase):
     def setUp(self):
         """Create instances of the models"""
         self.user = User.objects.create(username="md", password="md")
-        self.category = Category.objects.create(name="Personal")
+        self.category = Category.objects.create(name="Personal", owner=self.user)
         self.picture = Picture.objects.create(
             uploaded_image=tempfile.NamedTemporaryFile(suffix=".jpg").name,
             uploader=self.user, category=self.category)
@@ -38,7 +38,6 @@ class ModelTest(TestCase):
 
     def test_picture_fields(self):
         """Test the fields of picture model"""
-        self.assertEqual(self.picture.edited, False)
         self.assertIsNot(self.picture.uploaded_image, None)
         self.assertEqual(self.picture.uploader.id, 1)
         self.assertEqual(self.picture.category.id, 1)
