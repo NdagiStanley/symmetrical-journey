@@ -10,6 +10,7 @@ from django.utils import timezone
 class Category(models.Model):
     """docstring for Category model"""
     name = models.CharField(max_length=20)
+    owner = models.ForeignKey(User, related_name="categories")
 
     def __str__(self):
         return '<Category {}>'.format(self.name)
@@ -35,7 +36,6 @@ class Picture(models.Model):
     category = models.ForeignKey(Category, related_name="pictures")
     uploaded_image = models.ImageField(upload_to='pics/', blank=False)
     edited_image = models.ImageField(upload_to='edited/', blank=True)
-    edited = models.BooleanField(default=False)
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
 

@@ -14,15 +14,17 @@
 </head>
 
 <body>
-    <div class="ui fixed inverted menu">
-        <div class="ui container">
-            <a href=# class="header item"><img class=logo src=//s32.postimg.org/oog38bkut/image.png> Sjourney</a>
-            <div class="right item">Hey, {{ user.get_full_name }} <a href=/logout/ class="ui header item">Log out</a></div>
+    <div id="sjourney">
+        <div class="ui fixed inverted menu">
+            <div class="ui container">
+                <a href=# class="header item"><img class=logo src=//s32.postimg.org/oog38bkut/image.png> Sjourney</a>
+                <div class="right item">Hey, {{ user.get_full_name }} <a href=/logout/ class="ui header item">Log out</a></div>
+            </div>
         </div>
-    </div>
-    <div id=app>
-        <app></app>
-        <script src="{% static 'app.8e0c4ab25c03bda058a1.js' %}"></script>
+        <div id=app>
+            <app></app>
+            <script src="{% static 'app.4c307b4392eb2b3fc5ea.js' %}"></script>
+        </div>
     </div>
 </body>
 <style type=text/css>
@@ -31,7 +33,15 @@
     height: 30px
 }
 </style>
+<script language="javascript">
+function autoResizeDiv() {
+    document.getElementById('sjourney').style.height = window.innerHeight + 'px';
+}
+window.onresize = autoResizeDiv;
+autoResizeDiv();
+</script>
 <script>
+// Facebook SDK to allow share via Facebook
 // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
     console.log('statusChangeCallback');

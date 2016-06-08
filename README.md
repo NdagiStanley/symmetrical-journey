@@ -8,9 +8,11 @@
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for **development** and **testing** purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for **development** and **testing** purposes.
 
-### Prerequisities
+See **deployment** for notes on how to deploy the project on a live system.
+
+### Prerequisites
 
 You'll need to have the following installed in your local machine to run this application
 ```Python```, ```Node``` and ```GIT```
@@ -35,26 +37,33 @@ You'll need to have the following installed in your local machine to run this ap
 
     RUN ```python manage.py runserver``` and get to [http://localhost:8000](http://localhost:8000)
 
-5. The project packs a development tool for Vue JS (which supports hot-reloading and webpack bundling). For this:
+5. The project packs a development tool for Vue JS (which supports hot-reloading and webpack bundling).
+
+  For this:
 
     RUN ```npm run dev``` and get to [http://localhost:8888](http://localhost:8888)
 
-    After edtting the Vue components run ```npm run build```
+    After editing the Vue components run ```npm run build```
 
     In the index.html in the templates folder correctly reference the static files and run the django server.
 
+### Deployment
+
+You'll have to install [**Heroku toolbelt**](https://toolbelt.heroku.com/) for this.
+
+RUN ```heroku local web``` and get to [http://localhost:5000](http://localhost:5000) to see how the application will be on Heroku. Once satisfied, ``heroku push [branch-name]``
 
 ### Building blocks
 
 The application hosted [here](https://sjourney.herokuapp.com/) packs a punch.
 
-Pillow is a python package used to manipulate pictures and produce effects like `blurring`, `sharpening`
+Pillow is a python package used to manipulate pictures and produce effects like `blurring`, `sharpening` and `pixelate`.
 
 #####Backend
 It runs on Django complemented by a REST API made using Django Rest Framework (DRF)
 
 #####Front-end
-The frontend is a VueJS based Single Page Application (SPA) using the following tools and libraries:
+The front-end is a VueJS based Single Page Application (SPA) using the following tools and libraries:
 - `Vue JS` as the View Layer,
 - `vue-router` for routing,
 - `vuex` for state management,

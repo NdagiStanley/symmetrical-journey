@@ -85,7 +85,6 @@
 </template>
 
 <script>
-// import { splashImage } from '../actions'
 import store from '../store'
 export default {
   ready: function () {
@@ -98,13 +97,14 @@ export default {
       e.preventDefault()
       var input = this.categoryName
       this.$http.post('/api/v1/categories/', {name: input}).then(function (response) {
-        this.checkPictures
-        this.checkCategories
+        this.checkPictures()
+        this.checkCategories()
       }, function (response) {
       })
     },
     checkCategories: function () {
       this.$http.get('/api/v1/categories/').then(function (response) {
+        console.log(response.data)
         if (response.data.length === 0) {
           this.$set('no_category', true)
         } else {

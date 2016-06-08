@@ -46,12 +46,18 @@ class PictureSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     """docstring for CategorySerializer"""
 
-    # images = PictureSerializer()
-
     class Meta:
         model = Category
-        # fields = ('id', 'name', 'images')
-        fields = ('id', 'name')
+        fields = ('id', 'name', 'owner')
+
+        read_only_fields = ('id', 'owner')
+
+    def create(self, validated_data):
+        category = Category(
+            name=validated_data['name'],
+            owner=self.context.get('request').user)
+        category.save()
+        return category
 
 
 class UserSerializer(serializers.ModelSerializer):

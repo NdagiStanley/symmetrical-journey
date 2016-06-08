@@ -17,7 +17,6 @@ def Effect(effect, url):
 
     # Black and White
     if effect == 1:
-        print "A"
         pic = image.convert("L")
 
     # FILTERS

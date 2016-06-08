@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+import VueAsyncData from 'vue-async-data'
 
 import App from './App'
 import Home from './components/Home'
@@ -11,9 +12,10 @@ Vue.config.delimiters = ['[[', ']]']
 Vue.config.debug = true
 Vue.config.devtools = true
 
-// Apply VueResource and VueRouter to our Vue instance
+// Apply VueResource, VueAsyncData and VueRouter to our Vue instance
 Vue.use(VueResource)
 Vue.use(VueRouter)
+Vue.use(VueAsyncData)
 
 const router = new VueRouter()
 

@@ -19,23 +19,29 @@ class UserListAPIView(generics.ListCreateAPIView):
 class SocialAuthUserListAPIView(generics.ListAPIView):
     queryset = SocialAuthUser.objects.all()
     serializer_class = SocialAuthUserSerializer
+    permission_classes = (IsAdminUser,)
 
 
 class SocialAuthUserDetailAPIView(generics.RetrieveAPIView):
     queryset = SocialAuthUser.objects.all()
     serializer_class = SocialAuthUserSerializer
+    permission_classes = (IsAdminUser,)
 
 
 class CategoryListAPIView(generics.ListCreateAPIView):
-    queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    # authentication_classes = (CsrfExemptSessionAuthentication,)
+    authentication_classes = (CsrfExemptSessionAuthentication,)
+    def get_queryset(self):
+        user = self.request.user
+        return Category.objects.filter(owner=user)
 
 
 class CategoryDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    # authentication_classes = (CsrfExemptSessionAuthentication,)
+    authentication_classes = (CsrfExemptSessionAuthentication,)
+    def get_queryset(self):
+        user = self.request.user
+        return Category.objects.filter(owner=user)
 
 
 class PictureListAPIView(generics.ListCreateAPIView):
@@ -44,9 +50,12 @@ class PictureListAPIView(generics.ListCreateAPIView):
     endpoint = '/api/v1/pics/' path
     """
 
-    queryset = Picture.objects.all()
     serializer_class = PictureSerializer
     authentication_classes = (CsrfExemptSessionAuthentication,)
+
+    def get_queryset(self):
+        user = self.request.user
+        return Picture.objects.filter(uploader=user)
 
 
 class PictureDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
@@ -64,7 +73,8 @@ class PictureDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
         This view should return one or a list of all the filters for
         the image as determined by the filter portion of the URL.
         """
-        all_pictures = Picture.objects.all()
+        user = self.request.user
+        all_pictures = Picture.objects.filter(uploader=user)
         filter = self.request.query_params.get('filter', None)
         if not filter:
             return all_pictures
