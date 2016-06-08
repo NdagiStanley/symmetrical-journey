@@ -26,3 +26,20 @@
   </div>
   <router-view></router-view>
 </template>
+
+<script>
+  import Dashboard from './components/Dashboard.vue'
+  import Home from './components/Home.vue'
+  import Share from './components/Share.vue'
+  import store from './store' // import the store we just created
+
+  export default {
+    components: {
+      Dashboard,
+      Home,
+      Share
+    },
+    store // make this and all child components aware of the new store
+  }
+
+</script>

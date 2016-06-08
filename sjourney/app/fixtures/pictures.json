@@ -1,0 +1,18 @@
+[{
+    "fields": {
+        "username": "md",
+        "first_name": "Stan",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2016-06-01 09:19:15.653102+03",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$20000$5eNDE5VPC9hf$bs3YFBmsOOj9yt398YHDJKoqf6ezckr6y8X1jFYK+tM=",
+        "email": "ndagis@gmail.com",
+        "date_joined": "2016-06-01 09:01:15.653102+03"
+    },
+    "model": "auth.user",
+    "pk": 1
+}]

@@ -4,7 +4,7 @@ import glob, os
 from PIL import Image
 
 size = 128, 128
-url = '../../media/pics/stanmd.jpg'
+url = 'media/pics/sjpreview.jpg'
 
 # Apply effects
 effects.Effect(1, url).save('b_w.jpg')
@@ -24,7 +24,7 @@ for infile in glob.glob("*.jpg"):
     im = Image.open(infile)
     im.thumbnail(size)
     # Save them in a previews folder
-    im.save("../../media/previews/" + file + ".thumbnail", "JPEG")
+    im.save("media/previews/" + file + ".thumbnail", "JPEG")
 
 # Delete the images created
 os.system("rm *.jpg")

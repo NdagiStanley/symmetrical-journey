@@ -7,9 +7,10 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 
-# Create your models here.
 class Category(models.Model):
+    """docstring for Category model"""
     name = models.CharField(max_length=20)
+    owner = models.ForeignKey(User, related_name="categories")
 
     def __str__(self):
         return '<Category {}>'.format(self.name)
@@ -20,31 +21,29 @@ class Category(models.Model):
         for picture in self.pictures.all():
             images.append(
                 {'id': picture.id,
-                 'name': picture.title,
+                 'name': picture.name,
                  'date_created': picture.date_created,
                  'date_modified': picture.date_modified,
-                 'editted': picture.editted})
+                 'picture': picture.uploaded_image})
         return images
 
 
 class Picture(models.Model):
     """docstring for Picture model"""
 
-    title = models.CharField(max_length=255)
     size = models.CharField(max_length=255, blank=True)
     name = models.CharField(max_length=255, blank=True)
-    category = models.ForeignKey(Category, related_name="pictures", default=1)
+    category = models.ForeignKey(Category, related_name="pictures")
     uploaded_image = models.ImageField(upload_to='pics/', blank=False)
-    editted_image = models.ImageField(upload_to='editted/', blank=True)
-    editted = models.BooleanField(default=False)
+    edited_image = models.ImageField(upload_to='edited/', blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
 
     # Delete photos when uploader is deleted
-    uploader = models.ForeignKey(
-        User,
-        related_name="photos",
-        on_delete=models.CASCADE)
+    uploader = models.ForeignKey(User, related_name="photos")
+
+    def __str__(self):
+        return '<Picture {}>'.format(self.name)
 
 
 class SocialAuthUser(models.Model):

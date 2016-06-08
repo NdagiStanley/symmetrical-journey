@@ -26,14 +26,16 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url('', include('social.apps.django_app.urls', namespace='social')),
     url(r'^$', HomeView.as_view()),
-    url(r'^app/$', AppView.as_view()),
+    url(r'^app/$', AppView.as_view(), name='app'),
     url(r'^logout/$', logout),
 
     url(r'^api/v1/users/$', UserListAPIView.as_view()),
     url(r'^api/v1/susers/$', SocialAuthUserListAPIView.as_view()),
     url(r'^api/v1/susers/(?P<pk>[0-9]+)',SocialAuthUserDetailAPIView.as_view()),
-    url(r'^api/v1/pics/category/$', CategoryListAPIView.as_view()),
-    url(r'^api/v1/pics/category/(?P<pk>[0-9]+)', CategoryDetailAPIView.as_view()),
+
+    url(r'^api/v1/categories/$', CategoryListAPIView.as_view()),
+    url(r'^api/v1/categories/(?P<pk>[0-9]+)', CategoryDetailAPIView.as_view()),
+
     url(r'^api/v1/pics/$', PictureListAPIView.as_view()),
     url(r'^api/v1/pics/(?P<pk>[0-9]+)', PictureDetailAPIView.as_view()),
 
