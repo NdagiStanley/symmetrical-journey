@@ -94,3 +94,14 @@ class APICallTests(APITestCase):
         client.force_authenticate(user=self.user)
         response = client.get(url)
         self.assertEqual(response.status_code, 403)
+
+    def test_single_suser(self):
+        """
+        Ensure we can get to single suser endpoint
+        """
+        url = '/api/v1/susers/1'
+        response = client.get(url)
+        self.assertEqual(response.status_code, 403)
+        client.force_authenticate(user=self.user)
+        response = client.get(url)
+        self.assertEqual(response.status_code, 403)
