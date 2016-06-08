@@ -97,7 +97,7 @@ class APICallTests(APITestCase):
 
     def test_single_suser(self):
         """
-        Ensure we can get to single suser endpoint
+        Ensure we can get to single susert endpoint
         """
         url = '/api/v1/susers/1'
         response = client.get(url)
