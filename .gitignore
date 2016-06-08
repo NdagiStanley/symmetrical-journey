@@ -80,4 +80,4 @@ test/e2e/reports
 .env.yml
 
 # Media
-/media
+/media/pics/
