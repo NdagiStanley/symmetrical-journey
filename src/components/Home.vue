@@ -117,6 +117,7 @@ export default {
     checkPictures: function () {
       this.$http.get('/api/v1/pics/').then(function (response) {
         if (response.data.length === 0) {
+          this.$set('pics', response.data)
           this.$set('no_pics', true)
           this.$set('no_data', false)
         } else {
@@ -131,7 +132,6 @@ export default {
     },
     deletePic: function (id, picId) {
       this.$http.delete('/api/v1/pics/' + picId).then(function (response) {
-        console.log(picId)
         this.pics.$remove(id)
         this.$set('status', 'Picture deleted')
         this.checkPictures()

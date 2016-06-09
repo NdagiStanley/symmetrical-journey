@@ -3,8 +3,8 @@
 > A Vue.js project on Django that allows users to upload their photos, set filters to them and share them
 
 [![Build Status](https://semaphoreci.com/api/v1/stanmd/symmetrical-journey/branches/feature-review/badge.svg)](https://semaphoreci.com/stanmd/symmetrical-journey)
-[![Code Health](https://landscape.io/github/NdagiStanley/symmetrical-journey/ft-setup-repo/landscape.svg?style=plastic)](https://landscape.io/github/NdagiStanley/symmetrical-journey/ft-setup-repo)
-[![Coverage Status](https://coveralls.io/repos/github/NdagiStanley/symmetrical-journey/badge.svg?branch=master)](https://coveralls.io/github/NdagiStanley/symmetrical-journey?branch=ft-setup-repo)
+[![Code Health](https://landscape.io/github/NdagiStanley/symmetrical-journey/feature-review/landscape.svg?style=plastic)](https://landscape.io/github/NdagiStanley/symmetrical-journey/ft-setup-repo)
+[![Coverage Status](https://coveralls.io/repos/github/NdagiStanley/symmetrical-journey/badge.svg?branch=feature-review)](https://coveralls.io/github/NdagiStanley/symmetrical-journey?branch=feature-review)
 
 ## Getting Started
 

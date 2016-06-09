@@ -25,7 +25,7 @@
       </div>
     </div>
     <div align="center">
-      <img class="ui centered huge image" src="[[ pic ]]">
+      <img class="ui centered huge spaced image" src="[[ pic ]]">
       <div class="ui buttons">
         <button class="ui button" v-on:click="reset">RESET</button>
         <div class="or"></div>
@@ -40,7 +40,7 @@
       <h2 class="ui right floated header">Effects</h2>
       <div class="ui clearing divider">
       </div>
-      <div class="fx_images ui small images">
+      <div class="fx_images ui small circular images">
         <span v-on:click="effect(1)">
         <img src="/media/previews/b_w.thumbnail">
         </span>
