@@ -22,12 +22,6 @@ class SocialAuthUserListAPIView(generics.ListAPIView):
     permission_classes = (IsAdminUser,)
 
 
-class SocialAuthUserDetailAPIView(generics.RetrieveAPIView):
-    queryset = SocialAuthUser.objects.all()
-    serializer_class = SocialAuthUserSerializer
-    permission_classes = (IsAdminUser,)
-
-
 class CategoryListAPIView(generics.ListCreateAPIView):
     serializer_class = CategorySerializer
     authentication_classes = (CsrfExemptSessionAuthentication,)

@@ -37,15 +37,20 @@ You'll need to have the following installed in your local machine to run this ap
 
     RUN ```python manage.py runserver``` and get to [http://localhost:8000](http://localhost:8000)
 
-5. The project packs a development tool for Vue JS (which supports hot-reloading and webpack bundling).
-
-  For this:
+5. The project packs a development tool for Vue JS (which supports hot-reloading and webpack bundling). For this:
 
     RUN ```npm run dev``` and get to [http://localhost:8888](http://localhost:8888)
 
     After editing the Vue components run ```npm run build```
 
     In the index.html in the templates folder correctly reference the static files and run the django server.
+
+### Customization
+
+On the Dashboard page where you apply effects, you'll notice that the thumbnails are static and of an image of my choice.
+
+To customize the image rendered upload an image with this name `sjpreviews.jpg` and RUN ``` python sjourney/app/run_effects.py ```
+
 
 ### Deployment
 

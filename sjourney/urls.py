@@ -17,7 +17,6 @@ from django.conf.urls import url, patterns, include
 from django.contrib import admin
 from sjourney.app.views import HomeView, AppView, logout
 from sjourney.app.api import UserListAPIView, SocialAuthUserListAPIView
-from sjourney.app.api import SocialAuthUserDetailAPIView
 from sjourney.app.api import CategoryListAPIView, CategoryDetailAPIView
 from sjourney.app.api import PictureListAPIView, PictureDetailAPIView
 import settings
@@ -31,7 +30,6 @@ urlpatterns = [
 
     url(r'^api/v1/users/$', UserListAPIView.as_view(), name='user'),
     url(r'^api/v1/susers/$', SocialAuthUserListAPIView.as_view(), name='suser'),
-    url(r'^api/v1/susers/(?P<pk>[0-9]+)',SocialAuthUserDetailAPIView.as_view()),
 
     url(r'^api/v1/categories/$', CategoryListAPIView.as_view(), name='category'),
     url(r'^api/v1/categories/(?P<pk>[0-9]+)', CategoryDetailAPIView.as_view(), name='one_category'),

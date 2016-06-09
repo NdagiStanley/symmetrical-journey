@@ -48,7 +48,7 @@ class Picture(models.Model):
 
 class SocialAuthUser(models.Model):
     """
-    Read-only ORM to query information that is populated by python-social-auth
+    ORM to query information that is populated by python-social-auth
     in the 'social_auth_usersocialauth' table.
     """
     id = models.IntegerField(primary_key=True)

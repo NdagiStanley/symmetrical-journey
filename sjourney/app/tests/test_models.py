@@ -12,6 +12,8 @@ class ModelTest(TestCase):
     def setUp(self):
         """Create instances of the models"""
         self.user = User.objects.create(username="md", password="md")
+        self.suser = SocialAuthUser.objects.create(
+            user_id=2, uid=1, provider='random_social_account')
         self.category = Category.objects.create(name="Personal", owner=self.user)
         self.picture = Picture.objects.create(
             uploaded_image=tempfile.NamedTemporaryFile(suffix=".jpg").name,
@@ -30,6 +32,18 @@ class ModelTest(TestCase):
     def test_user_fields(self):
         """Test the fields of user model"""
         self.assertEqual(self.user.username, 'md')
+
+    def test_suser_string_representation(self):
+        """Test the representation of suser instance"""
+        self.assertEqual(str(self.user), self.user.username)
+
+    def test_suser_fields(self):
+        """Test the fields of suser model"""
+        self.assertEqual(len(SocialAuthUser.objects.all()), 1)
+        self.assertEqual(self.suser.user_id, 2)
+        self.assertEqual(self.suser.uid, 1)
+        self.assertEqual(self.suser.extra_data, '')
+        self.assertEqual(self.suser.provider, 'random_social_account')
 
     def test_picture_string_representation(self):
         """Test the representation of picture instance"""
