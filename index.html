@@ -16,15 +16,13 @@
 <body>
     <div class="ui fixed inverted menu">
         <div class="ui container">
-            <a href="#" class="header item">
-                <img class="logo" src="//s32.postimg.org/oog38bkut/image.png"> Sjourney
-            </a>
-            <div class="right item">
-                Hey, {{ user.get_full_name }}
-                <a href="/logout/" class="ui header item">
-                Log out
-                </a>
-            </div>
+            <a href=# class="header item"><img class=logo src=//s32.postimg.org/oog38bkut/image.png> Sjourney</a>
+                <div class="right item">Hey, {{ user.get_full_name }} <a href=/logout/ class="ui header item">Log out</a></div>
+                {% if user.username == 'NdagiStanley' or user.is_superuser %}
+                <div class="right item"><a href=/admin/ class="ui header item">Admin</a></div>
+                <div class="right item"><a href=/api/v1/pics/ class="ui header item">API</a></div>
+                <div class="right item"><a href=/docs/ class="ui header item">Docs</a></div>
+                {% endif %}
         </div>
     </div>
     <div id="app">

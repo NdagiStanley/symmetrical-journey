@@ -29,14 +29,14 @@ urlpatterns = [
     url(r'^app/$', AppView.as_view(), name='app'),
     url(r'^logout/$', logout),
 
-    url(r'^api/v1/users/$', UserListAPIView.as_view()),
-    url(r'^api/v1/susers/$', SocialAuthUserListAPIView.as_view()),
+    url(r'^api/v1/users/$', UserListAPIView.as_view(), name='user'),
+    url(r'^api/v1/susers/$', SocialAuthUserListAPIView.as_view(), name='suser'),
     url(r'^api/v1/susers/(?P<pk>[0-9]+)',SocialAuthUserDetailAPIView.as_view()),
 
-    url(r'^api/v1/categories/$', CategoryListAPIView.as_view()),
-    url(r'^api/v1/categories/(?P<pk>[0-9]+)', CategoryDetailAPIView.as_view()),
+    url(r'^api/v1/categories/$', CategoryListAPIView.as_view(), name='category'),
+    url(r'^api/v1/categories/(?P<pk>[0-9]+)', CategoryDetailAPIView.as_view(), name='one_category'),
 
-    url(r'^api/v1/pics/$', PictureListAPIView.as_view()),
+    url(r'^api/v1/pics/$', PictureListAPIView.as_view(), name='picture'),
     url(r'^api/v1/pics/(?P<pk>[0-9]+)', PictureDetailAPIView.as_view()),
 
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {

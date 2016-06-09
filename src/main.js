@@ -6,7 +6,6 @@ import VueAsyncData from 'vue-async-data'
 import App from './App'
 import Home from './components/Home'
 import Dashboard from './components/Dashboard'
-import Share from './components/Share'
 
 Vue.config.delimiters = ['[[', ']]']
 Vue.config.debug = true
@@ -26,9 +25,6 @@ router.map({
   },
   '/dashboard': {
     component: Dashboard
-  },
-  '/share': {
-    component: Share
   }
 })
 
