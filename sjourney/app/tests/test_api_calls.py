@@ -7,7 +7,7 @@ from rest_framework.test import APIRequestFactory, APITestCase
 from rest_framework.test import force_authenticate, APIClient
 from sjourney.app.models import Category, Picture, User, SocialAuthUser
 from sjourney.app.api import CategoryListAPIView
-from sjourney.app.serializers import PictureSerializer
+
 
 factory = APIRequestFactory()
 client = APIClient()
@@ -29,6 +29,11 @@ class APICallTests(APITestCase):
             uploader=self.user, category=self.category)
 
     def tearDown(self):
+        """Clean the test db"""
+        User.objects.all().delete()
+        Category.objects.all().delete()
+        Picture.objects.all().delete()
+
         client.logout()
 
     def authenticate_api_call(self, view, url):
