@@ -4,7 +4,7 @@ import glob, os
 from PIL import Image
 
 size = 128, 128
-url = 'media/pics/sjpreview.jpg'
+url = 'media/pics/sjpreviews.jpg'
 
 # Apply effects
 effects.Effect(1, url).save('b_w.jpg')
