@@ -10,7 +10,7 @@ Django Powered Photo Editing Application
 
 ####End Date
 
-27 May 2016
+27 May 2016 (Proposed)
 
 ##Application Overview
 
@@ -20,7 +20,7 @@ This application allows the user to login via facebook; upload an image, apply f
 
 ###Features
 
-The user will be able categorise their images.
+The user will be able categorize their images.
 
 ###Technology
 
@@ -38,10 +38,26 @@ The user will be able categorise their images.
 
     **1**
 
-~3. Integrate Vue with Django~
+~~3. Integrate Vue with Django~~
 
     **2**
 
-4. Functionality (Break it down)
+~~4. Facebook functionality~~
 
-5.
+    **2**
+
+~~5. Formulate views for the dashboard~~
+
+    **2**
+
+~~6. Photo Effects Backend~~
+
+    **2**
+
+~~7. Dashboard moving parts~~
+
+    **3**
+
+~~8. Functionality effects on photos~~
+
+    **2**

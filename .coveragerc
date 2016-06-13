@@ -5,3 +5,5 @@ omit =
   *commands*
   *autofixtures*
   *tests.py*
+  *effects.py*
+  *admin.py*

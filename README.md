@@ -33,11 +33,23 @@ You'll need to have the following installed in your local machine to run this ap
 
     RUN ```npm install``` for vue (frontend)
 
-4. To run the server:
+4. Create a file ```.env.yml``` and add the following configuration variables in it.
+
+  ```yml
+  SECRET_KEY:
+        "Something"
+  SOCIAL_AUTH_FACEBOOK_KEY:
+        "Something"
+  SOCIAL_AUTH_FACEBOOK_SECRET:
+        "Something"
+  ```
+  You can access the `SOCIAL_AUTH_FACEBOOK_SECRET` and the `SOCIAL_AUTH_FACEBOOK_KEY` from the Facebook developer page.
+
+5. To run the server:
 
     RUN ```python manage.py runserver``` and get to [http://localhost:8000](http://localhost:8000)
 
-5. The project packs a development tool for Vue JS (which supports hot-reloading and webpack bundling).
+6. The project packs a development tool for Vue JS (which supports hot-reloading and webpack bundling).
 
   For this:
 
