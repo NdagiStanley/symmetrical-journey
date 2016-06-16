@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper">
-    <div class="ui three top attached steps">
+    <div class="ui large two top attached steps">
       <div class="active step">
         <a v-link="'/'">
         <div class="content">
@@ -17,33 +17,13 @@
         </div>
         </a>
       </div>
-      <div class="disabled step">
-        <div class="content">
-          <div class="title"><i class="share icon"></i>Share</div>
-          <div class="description">1-click share to Facebook</div>
-        </div>
-      </div>
     </div>
   </div>
   <div id="upload" align="center">
-    <div v-if="no_category">
-      <h2>Create a category</h2>
-      <form>
-        <input type="text" class="form-control" v-model="categoryName">
-        <button class="ui button" v-on:click="onCreateCategory">
-          <i class="plus icon"></i>
-          Create
-        </button>
-      </form>
-    </div>
-    <div v-else>
+    <div>
       <h2>Select an image</h2>
       <form>
         <input type="file" v-el:fileInput v-model="newInput" class="form-control">
-        <div class="ui dropdown">
-          <div class="text">[[ category.name ]]</div>
-          <i class="dropdown icon"></i>
-        </div>
         <button class="ui button" v-on:click="onSubmitForm">
           <i class="upload icon"></i>
           Upload
@@ -93,15 +73,6 @@ export default {
     this.checkCategories()
   },
   methods: {
-    onCreateCategory: function (e) {
-      e.preventDefault()
-      var input = this.categoryName
-      this.$http.post('/api/v1/categories/', {name: input}).then(function (response) {
-        this.checkPictures()
-        this.checkCategories()
-      }, function (response) {
-      })
-    },
     checkCategories: function () {
       this.$http.get('/api/v1/categories/').then(function (response) {
         console.log(response.data)
@@ -142,7 +113,7 @@ export default {
       e.preventDefault()
       var fileUploadFormData = new window.FormData()
       fileUploadFormData.append('uploaded_image', this.$els.fileinput.files[0])
-      fileUploadFormData.append('category', this.category.id)
+      // fileUploadFormData.append('category', this.category)
       this.$http.post('/api/v1/pics/', fileUploadFormData).then(function (response) {
         this.checkPictures()
         this.$set('newInput', '')

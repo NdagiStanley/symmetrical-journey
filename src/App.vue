@@ -1,5 +1,5 @@
 <template>
-  <div class="ui three top attached steps">
+  <div class="ui two top attached steps">
       <div class="active step">
         <a v-link="'/home'">
         <div class="content">
@@ -15,12 +15,6 @@
           <div class="description">Select effects to the photos</div>
         </div>
         </a>
-      </div>
-      <div class="disabled step">
-        <div class="content">
-          <div class="title"><i class="share icon"></i>Share</div>
-          <div class="description">1-click share to Facebook</div>
-        </div>
       </div>
     </div>
   </div>

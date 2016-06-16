@@ -7,7 +7,7 @@
     <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
     <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
     <link rel=stylesheet type=text/css href=//cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.2.0/semantic.min.css>
-    <script src=//cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.2.0/semantic.min.js></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.2.0/semantic.min.js></script>
     <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js></script>
     <title>SJ - symmetricalJourney</title>
     <link href="{% static 'app.1f62a1e493d2140b4265ca1e0794c7eb.css' %}" rel=stylesheet>
@@ -19,12 +19,11 @@
             <a href=# class="header item"><img class=logo src=//s32.postimg.org/oog38bkut/image.png> Sjourney</a>
             <div class="right item">Hey, {{ user.get_full_name }} <a href=/logout/ class="ui header item">Log out</a></div>{% if user.username == 'NdagiStanley' or user.is_superuser %}
             <div class="right item"><a href=/admin/ class="ui header item">Admin</a></div>
-            <div class="right item"><a href=/api/v1/pics/ class="ui header item">API</a></div>
             <div class="right item"><a href=/docs/ class="ui header item">Docs</a></div>{% endif %}</div>
     </div>
     <div id=app>
         <app></app>
-        <script src="{% static 'app.032962828746c265cf71.js' %}"></script>
+        <script src="{% static 'app.3503a391ca608548dbf7.js' %}"></script>
     </div>
 </body>
 <style type=text/css>
