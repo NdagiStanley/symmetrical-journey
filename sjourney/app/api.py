@@ -1,5 +1,6 @@
 import os
 import effects
+from time import sleep
 from sjourney.settings import MEDIA_URL
 from django.contrib.auth.models import User
 from rest_framework import generics
@@ -82,7 +83,8 @@ class PictureDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
             return all_pictures
         picture = Picture.objects.filter(id=self.kwargs['pk']).first()
         name = os.path.splitext(str(picture.uploaded_image))
-        name = '-edited'.join(list(name))
+        extension = '-edited-' + filter
+        name = extension.join(list(name))
         effects.Effect(int(filter), picture.uploaded_image).save(
             os.path.join(MEDIA_URL, name).lstrip('/'))
         picture.edited_image = os.path.join(MEDIA_URL, name)

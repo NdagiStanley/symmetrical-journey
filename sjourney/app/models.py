@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from sjourney import settings
 
 from django.contrib.auth.models import User
 from django.utils import timezone
@@ -33,7 +32,7 @@ class Picture(models.Model):
 
     size = models.CharField(max_length=255, blank=True)
     name = models.CharField(max_length=255, blank=True)
-    category = models.ForeignKey(Category, related_name="pictures")
+    category = models.ForeignKey(Category, related_name="pictures", default=1)
     uploaded_image = models.ImageField(upload_to='pics/', blank=False)
     edited_image = models.ImageField(upload_to='edited/', blank=True)
     date_created = models.DateTimeField(auto_now_add=True)

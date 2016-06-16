@@ -22,7 +22,7 @@ class PictureSerializer(serializers.ModelSerializer):
             uploader=self.context.get('request').user,
             name=os.path.basename(validated_data['uploaded_image'].name),
             # size=os.path.basename(validated_data['uploaded_image'].size),
-            category=validated_data['category'],
+            # category=validated_data['category']
         )
         picture.save()
         return picture
