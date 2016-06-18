@@ -3,11 +3,8 @@ from django.contrib.auth import authenticate
 from django.core.urlresolvers import reverse
 from sjourney.app.models import User
 
+
 class LoginTests(TestCase):
-
-    # Include the fixtures
-    fixtures = ['pictures.json']
-
     def setUp(self):
         pass
 
@@ -32,7 +29,6 @@ class LoginTests(TestCase):
         """
         Test that '/app/' can only be accessed by an authenticated user
         """
-        # Test data in json file
         self.assertEqual(len(User.objects.all()), 1)
         response = self.client.get(reverse('app'))
         self.assertEqual(response.status_code, 302)

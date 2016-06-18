@@ -6,7 +6,6 @@ from rest_framework.test import force_authenticate, APIClient
 from sjourney.app.models import Category, Picture, User
 from sjourney.app.api import CategoryListAPIView
 
-
 factory = APIRequestFactory()
 client = APIClient()
 
@@ -15,7 +14,8 @@ class APICallTests(APITestCase):
 
     def setUp(self):
         self.user = User.objects.create(username="md", password="md")
-        self.category = Category.objects.create(name="Personal", owner=self.user)
+        self.category = Category.objects.create(
+            name="Personal", owner=self.user)
         self.picture = Picture.objects.create(
             uploaded_image=tempfile.NamedTemporaryFile(suffix=".jpg").name,
             uploader=self.user, category=self.category)
@@ -97,7 +97,7 @@ class APICallTests(APITestCase):
 
     def test_single_suser(self):
         """
-        Ensure we can get to single susert endpoint
+        Ensure we can get to single suser endpoint
         """
         url = '/api/v1/susers/1'
         response = client.get(url)

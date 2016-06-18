@@ -1,12 +1,12 @@
 import Vue from 'vue'
-import Hello from 'src/components/Hello'
+import Home from 'src/components/Home'
 
-describe('Hello.vue', () => {
+describe('Home.vue', () => {
   it('should render correct contents', () => {
     const vm = new Vue({
-      template: '<div><hello></hello></div>',
-      components: { Hello }
+      template: '<div></div>',
+      components: { Home }
     }).$mount()
-    expect(vm.$el.querySelector('.hello h1').textContent).to.contain('Hello there!')
+    expect(vm.$el.querySelector('#upload h2').textContent).to.contain('Select an image')
   })
 })

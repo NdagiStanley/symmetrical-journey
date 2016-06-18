@@ -4,6 +4,8 @@ import glob, os
 from PIL import Image
 
 size = 128, 128
+
+# Determine which im
 url = 'media/pics/sjpreview.jpg'
 
 # Apply effects

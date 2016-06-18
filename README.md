@@ -33,7 +33,24 @@ You'll need to have the following installed in your local machine to run this ap
 
     RUN ```npm install``` for vue (frontend)
 
-4. Create a file ```.env.yml``` and add the following configuration variables in it.
+4. Create a database then update the `settings.py` between lines 128 and 138.
+
+  The built-in database backends are: **'django.db.backends.postgresql' 'django.db.backends.mysql' 'django.db.backends.sqlite3' 'django.db.backends.oracle'** Below is an example using Postgres:
+
+  ```
+  else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'mydatabase',
+            'USER': 'user',
+            'PASSWORD': 'p@ssw0rd',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+        }
+    }
+  ```
+5. Create a file ```.env.yml``` and add the following configuration variables in it.
 
   ```yml
   SECRET_KEY:
@@ -45,11 +62,11 @@ You'll need to have the following installed in your local machine to run this ap
   ```
   You can access the `SOCIAL_AUTH_FACEBOOK_SECRET` and the `SOCIAL_AUTH_FACEBOOK_KEY` from the Facebook developer page.
 
-5. To run the server:
+6. To run the server:
 
     RUN ```python manage.py runserver``` and get to [http://localhost:8000](http://localhost:8000)
 
-6. The project packs a development tool for Vue JS (which supports hot-reloading and webpack bundling).
+7. The project packs a development tool for Vue JS (which supports hot-reloading and webpack bundling).
 
   For this:
 
@@ -58,6 +75,12 @@ You'll need to have the following installed in your local machine to run this ap
     After editing the Vue components run ```npm run build```
 
     In the index.html in the templates folder correctly reference the static files and run the django server.
+
+### Testing
+
+To test the backend RUN ```python manage.py test```
+
+To test the frontend (End to End testing) RUN ```npm run e2e```
 
 ### Deployment
 

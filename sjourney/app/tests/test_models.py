@@ -1,6 +1,5 @@
 import datetime
 import tempfile
-
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 from ..models import Category, Picture, User, SocialAuthUser

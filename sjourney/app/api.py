@@ -1,6 +1,5 @@
 import os
 import effects
-from time import sleep
 from sjourney.settings import MEDIA_URL
 from django.contrib.auth.models import User
 from rest_framework import generics
@@ -11,25 +10,42 @@ from serializers import PictureSerializer, CategorySerializer
 from models import Picture, SocialAuthUser, Category
 from authentication import CsrfExemptSessionAuthentication
 
+
 class UserListAPIView(generics.ListCreateAPIView):
+    """
+    docstring for UserListAPIView
+    endpoint = '/api/v1/users/' path
+    """
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = (IsAdminUser,)
 
 
 class SocialAuthUserListAPIView(generics.ListAPIView):
+    """
+    docstring for SocialAuthUserListAPIView
+    endpoint = '/api/v1/susers/' path
+    """
     queryset = SocialAuthUser.objects.all()
     serializer_class = SocialAuthUserSerializer
     permission_classes = (IsAdminUser,)
 
 
 class SocialAuthUserDetailAPIView(generics.RetrieveAPIView):
+    """
+    docstring for SocialAuthUserDetailAPIView
+    endpoint = '/api/v1/susers/<id>' path
+    """
     queryset = SocialAuthUser.objects.all()
     serializer_class = SocialAuthUserSerializer
     permission_classes = (IsAdminUser,)
 
 
 class CategoryListAPIView(generics.ListCreateAPIView):
+    """
+    docstring for CategoryListAPIView
+    endpoint = '/api/v1/categories/' path
+    """
     serializer_class = CategorySerializer
     authentication_classes = (CsrfExemptSessionAuthentication,)
     def get_queryset(self):
@@ -38,6 +54,10 @@ class CategoryListAPIView(generics.ListCreateAPIView):
 
 
 class CategoryDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+    """
+    docstring for CategoryDetailAPIView
+    endpoint = '/api/v1/categories/<id>' path
+    """
     serializer_class = CategorySerializer
     authentication_classes = (CsrfExemptSessionAuthentication,)
     def get_queryset(self):
