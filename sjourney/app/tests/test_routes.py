@@ -5,6 +5,10 @@ from sjourney.app.models import User
 
 
 class LoginTests(TestCase):
+
+    # Include the fixtures
+    fixtures = ['users.json']
+
     def setUp(self):
         pass
 

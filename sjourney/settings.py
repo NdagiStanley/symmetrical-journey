@@ -129,13 +129,14 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'sjourney',
-            'USER': 'postgres',
-            'PASSWORD': '@ndel@2o15',
+            'NAME': '',  # Name of the database
+            'USER': '',  # Name of the user of the database
+            'PASSWORD': '',  # The password
             'HOST': '127.0.0.1',
             'PORT': '5432',
         }
     }
+
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
