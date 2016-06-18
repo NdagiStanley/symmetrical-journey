@@ -40,11 +40,11 @@
     <h4>You have no photos on sJourney
     <br>Why not upload one or more ...</h4>
   </div>
-  <div v-if="pics">
+  <div class="pictures" v-if="pics">
     <div class="ui six link cards">
       <div class="card" v-for="pic in pics">
         <div class="image" v-on:click="splash(pic.id)" v-link="'/dashboard'">
-          <img src="[[ pic.uploaded_image ]]">
+          <img class="ui small image" src="[[ pic.uploaded_image ]]">
         </div>
         <div class="content">
           <div class="header">[[ pic.name ]]</div>
@@ -63,6 +63,13 @@
   <h4>Please try reloading</h4>
   </div>
 </template>
+
+<style type="text/css" scoped>
+  .pictures {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+</style>
 
 <script>
 import store from '../store'
@@ -107,6 +114,7 @@ export default {
         this.$set('status', 'Picture deleted')
         this.checkPictures()
       }, function (response) {
+        this.checkPictures()
       })
     },
     onSubmitForm: function (e) {

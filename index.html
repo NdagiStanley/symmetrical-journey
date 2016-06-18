@@ -10,18 +10,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.2.0/semantic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <title>SJ - symmetricalJourney</title>
+    <link href=// rel=stylesheet>
     <link href="{% static '' %}" rel="stylesheet">
 </head>
 
 <body>
     <div class="ui fixed inverted menu">
         <div class="ui container">
-            <a href=# class="header item"><img class=logo src=//s32.postimg.org/oog38bkut/image.png> Sjourney</a>
-                <div class="right item">Hey, {{ user.get_full_name }} <a href=/logout/ class="ui header item">Log out</a></div>
-                {% if user.username == 'NdagiStanley' or user.is_superuser %}
-                <div class="right item"><a href=/admin/ class="ui header item">Admin</a></div>
-                <div class="right item"><a href=/docs/ class="ui header item">Docs</a></div>
-                {% endif %}
+            <a href=# class=item>
+            <img class=logo src=//s32.postimg.org/oog38bkut/image.png>Sjourney</a>
+            <div class="right item">Hey, {{ user.get_full_name }} <a href=/logout/ class="ui header item">Log out</a></div>
+            {% if user.username == 'NdagiStanley' or user.is_superuser %}
+            <div class="right item"><a href=/admin/ class="ui header item">Admin</a></div>
+            <div class="right item"><a href=/docs/ class="ui header item">Docs</a></div>
+            {% endif %}
         </div>
     </div>
     <div id="app">
@@ -32,8 +34,8 @@
 </body>
 <style type="text/css">
 .ui.menu .item img.logo {
-    width: 30px;
-    height: 30px
+    width: 20px;
+    height: 20px
 }
 </style>
 <script type="text/javascript">

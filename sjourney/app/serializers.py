@@ -15,6 +15,8 @@ class PictureSerializer(serializers.ModelSerializer):
         read_only_fields = ('id', 'edited_image', 'date_created',
                             'name', 'uploader', 'size')
 
+        ordering = ('-date_created',)
+
     def create(self, validated_data):
         picture = Picture(
             uploaded_image=validated_data['uploaded_image'],

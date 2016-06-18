@@ -76,7 +76,7 @@ class PictureListAPIView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return Picture.objects.filter(uploader=user)
+        return Picture.objects.filter(uploader=user).order_by('-date_created')
 
 
 class PictureDetailAPIView(generics.RetrieveUpdateDestroyAPIView):

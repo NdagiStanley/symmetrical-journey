@@ -19,7 +19,10 @@
       </div>
     </div>
     <div align="center">
-      <img class="ui centered huge spaced image" src="[[ pic ]]">
+      <div v-if="loading" class="ui active inverted dimmer">
+        <div class="ui large text loader">Loading</div>
+      </div>
+      <img id="splash" class="ui centered huge image" src="[[ pic ]]">
       <div class="ui buttons">
         <button class="ui button" v-on:click="reset">RESET</button>
         <div class="or"></div>
@@ -30,47 +33,52 @@
         <button class="ui secondary button" v-on:click="share(pic)"><i class="share icon"></i>Share</button>
       </div>
     </div>
-    <div class="ui segment">
-      <h2 class="ui right floated header">Effects</h2>
+    <div align="center" class="ui segment">
+      <h2 class="ui blue center aligned header">Effects</h2>
       <div class="ui clearing divider">
       </div>
       <div class="fx_images ui small circular images">
-        <span v-on:click="effect(1)">
+        <a href="#" v-on:click="effect(1)" onclick="return false;">
         <img src="/media/previews/b_w.thumbnail">
-        </span>
-        <span v-on:click="effect(2)">
+        </a>
+        <a href="#" v-on:click="effect(2)" onclick="return false;">
         <img src="/media/previews/detail.thumbnail">
-        </span>
-        <span v-on:click="effect(3)">
+        </a>
+        <a href="#" v-on:click="effect(3)" onclick="return false;">
         <img src="/media/previews/blur.thumbnail">
-        </span>
-        <span v-on:click="effect(4)">
+        </a>
+        <a href="#" v-on:click="effect(4)" onclick="return false;">
         <img src="/media/previews/emboss.thumbnail">
-        </span>
-        <span v-on:click="effect(5)">
+        </a>
+        <a href="#" v-on:click="effect(5)" onclick="return false;">
         <img src="/media/previews/upside_down.thumbnail">
-        </span>
-        <span v-on:click="effect(6)">
+        </a>
+        <a href="#" v-on:click="effect(6)" onclick="return false;">
         <img src="/media/previews/find_edges.thumbnail">
-        </span>
-        <span v-on:click="effect(7)">
+        </a>
+        <a href="#" v-on:click="effect(7)" onclick="return false;">
         <img src="/media/previews/contour.thumbnail">
-        </span>
-        <span v-on:click="effect(8)">
+        </a>
+        <a href="#" v-on:click="effect(8)" onclick="return false;">
         <img src="/media/previews/contrast.thumbnail">
-        </span>
-        <span v-on:click="effect(9)">
+        </a>
+        <a href="#" v-on:click="effect(9)" onclick="return false;">
         <img src="/media/previews/bright.thumbnail">
-        </span>
-        <span v-on:click="effect(10)">
+        </a>
+        <a href="#" v-on:click="effect(10)" onclick="return false;">
         <img src="/media/previews/pixelate.thumbnail">
-        </span>
+        </a>
       </div>
     </div>
   </div>
 </template>
 
 <style type="text/css" scoped>
+#splash {
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
 .fx_images {
   display: flex;
   align-items: center;
@@ -89,6 +97,7 @@ export default {
     // GET request
     this.$http.get('/api/v1/pics/' + this.imageId).then(function (response) {
       this.$set('pic', response.data.uploaded_image)
+      this.$set('loading', false)
     }, function (response) {
       router.go('/')
     })
@@ -107,11 +116,14 @@ export default {
       })
     },
     effect: function (id) {
+      this.$set('loading', true)
       this.$http.get('/api/v1/pics/' + this.imageId + '?filter=' + id).then(function (response) {
         this.$set('pic', response.data.edited_image)
+        this.$set('loading', false)
       }, function (response) {
         this.$http.get('/api/v1/pics/' + this.imageId + '?filter=' + id).then(function (response) {
           this.$set('pic', response.data.edited_image)
+          this.$set('loading', false)
         }, function (response) {
         })
       })
