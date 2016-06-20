@@ -1,6 +1,6 @@
 from PIL import Image, ImageFilter, ImageEnhance
 
-def Effect(effect, url):
+def apply_effect(effect, url):
     """
     Accepts effect as an integer
     The url as a string

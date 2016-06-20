@@ -105,7 +105,7 @@ class PictureDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
         name = os.path.splitext(str(picture.uploaded_image))
         extension = '-edited-' + filter
         name = extension.join(list(name))
-        effects.Effect(int(filter), picture.uploaded_image).save(
+        effects.apply_effect(int(filter), picture.uploaded_image).save(
             os.path.join(MEDIA_URL, name).lstrip('/'))
         picture.edited_image = os.path.join(MEDIA_URL, name)
         picture.save()
