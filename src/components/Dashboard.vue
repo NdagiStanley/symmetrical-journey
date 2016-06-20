@@ -119,14 +119,13 @@ export default {
       this.$set('loading', true)
       this.$http.get('/api/v1/pics/' + this.imageId + '?filter=' + id).then(function (response) {
         this.$set('pic', response.data.edited_image)
-        this.$set('loading', false)
       }, function (response) {
         this.$http.get('/api/v1/pics/' + this.imageId + '?filter=' + id).then(function (response) {
           this.$set('pic', response.data.edited_image)
-          this.$set('loading', false)
         }, function (response) {
         })
       })
+      this.$set('loading', false)
     },
     share: function (pic) {
       window.FB.ui({
