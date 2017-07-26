@@ -9,7 +9,7 @@ django-nose==1.4.4
 djangorestframework==3.6.3
 django-toolbelt==0.0.1
 drfdocs==0.0.11
-gunicorn==19.4.5
+gunicorn==19.7.1
 Pillow==3.2.0
 psycopg2==2.6.1
 python-social-auth==0.2.19
