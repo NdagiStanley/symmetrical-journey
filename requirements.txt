@@ -13,4 +13,4 @@ gunicorn==19.7.1
 Pillow==4.2.1
 psycopg2==2.7.3
 python-social-auth==0.3.6
-whitenoise==2.0.3
+whitenoise==3.3.0
