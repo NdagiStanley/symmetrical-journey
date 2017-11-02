@@ -1,5 +1,7 @@
 # symmetrical-journey
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/NdagiStanley/symmetrical-journey.svg)](https://greenkeeper.io/)
+
 > A Vue.js project on Django that allows users to upload their photos, set filters to them and share them
 
 [![Build Status](https://semaphoreci.com/api/v1/stanmd/symmetrical-journey/branches/feature-review/badge.svg)](https://semaphoreci.com/stanmd/symmetrical-journey)
