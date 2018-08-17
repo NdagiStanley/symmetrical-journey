@@ -81,3 +81,7 @@ test/e2e/reports
 
 # Media
 /media/pics/
+
+.env
+package-lock.json
+testdatabase

@@ -20,7 +20,7 @@ from sjourney.app.api import UserListAPIView, SocialAuthUserListAPIView
 from sjourney.app.api import SocialAuthUserDetailAPIView
 from sjourney.app.api import CategoryListAPIView, CategoryDetailAPIView
 from sjourney.app.api import PictureListAPIView, PictureDetailAPIView
-import settings
+from sjourney import settings
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),

@@ -1,14 +1,14 @@
 import os
-import effects
+from sjourney.app.effects import apply_effect
 from sjourney.settings import MEDIA_URL
 from django.contrib.auth.models import User
 from rest_framework import generics
 from rest_framework.permissions import IsAdminUser
 
-from serializers import UserSerializer, SocialAuthUserSerializer
-from serializers import PictureSerializer, CategorySerializer
-from models import Picture, SocialAuthUser, Category
-from authentication import CsrfExemptSessionAuthentication
+from sjourney.app.serializers import UserSerializer, SocialAuthUserSerializer
+from sjourney.app.serializers import PictureSerializer, CategorySerializer
+from sjourney.app.models import Picture, SocialAuthUser, Category
+from sjourney.app.authentication import CsrfExemptSessionAuthentication
 
 
 class UserListAPIView(generics.ListCreateAPIView):
@@ -105,7 +105,7 @@ class PictureDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
         name = os.path.splitext(str(picture.uploaded_image))
         extension = '-edited-' + filter
         name = extension.join(list(name))
-        effects.apply_effect(int(filter), picture.uploaded_image).save(
+        apply_effect(int(filter), picture.uploaded_image).save(
             os.path.join(MEDIA_URL, name).lstrip('/'))
         picture.edited_image = os.path.join(MEDIA_URL, name)
         picture.save()

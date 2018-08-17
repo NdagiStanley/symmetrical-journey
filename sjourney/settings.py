@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.9/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
-from django_envie.workroom import convertfiletovars
+# from django_envie.workroom import convertfiletovars
 
 import os
 import sys
@@ -17,7 +17,7 @@ import dj_database_url
 
 
 # For purposes of having a env.yml
-convertfiletovars()
+# convertfiletovars()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
