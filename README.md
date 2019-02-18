@@ -5,7 +5,6 @@
 [![Build Status](https://semaphoreci.com/api/v1/stanmd/symmetrical-journey/branches/feature-review/badge.svg)](https://semaphoreci.com/stanmd/symmetrical-journey)
 [![Coverage Status](https://coveralls.io/repos/github/NdagiStanley/symmetrical-journey/badge.svg?branch=feature-review)](https://coveralls.io/github/NdagiStanley/symmetrical-journey?branch=feature-review)
 [![Code Health](https://landscape.io/github/NdagiStanley/symmetrical-journey/feature-review/landscape.svg?style=plastic)](https://landscape.io/github/NdagiStanley/symmetrical-journey/ft-setup-repo)
-[![Code Issues](https://www.quantifiedcode.com/api/v1/project/c656a2aa342b414596e2dac48419c64b/badge.svg)](https://www.quantifiedcode.com/app/project/c656a2aa342b414596e2dac48419c64b)
 ![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 ## Getting Started
@@ -112,4 +111,4 @@ The UI-framework used is `semantic-ui`
 ----
 
 Copyright AD-2016
-###### [Stanley Ndagi](http://techkenyans.org/jamii/stanmd) c/o [Andela](http://andela.com)
+###### [Stanley Ndagi](https://stanmd.tk) c/o [Andela](http://andela.com)
